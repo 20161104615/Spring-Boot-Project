@@ -1,0 +1,13 @@
+server:
+  port: 8080  # 服务端口号
+spring:
+  application:
+    name: mybatis-service  # 服务名称
+jdbc:  # 数据源链接信息
+  driverClassName: com.mysql.jdbc.Driver
+  url: j
+mybatis:dbc:mysql://127.0.0.1:3306/estore
+username: root
+password: root
+  type-aliases-package: cn.bufanli.mybatis.pojo # 别名扫描宝
+  mapper-locations: classpath:mappers/*.xml # 映射文件的路径扫描
