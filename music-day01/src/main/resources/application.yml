@@ -1,13 +1,79 @@
 server:
-  port: 8080  # 服务端口号
+  port: 8080
+  session-timeout: 30
+  tomcat.max-threads: 0
+  tomcat.uri-encoding: UTF-8
+
 spring:
-  application:
-    name: mybatis-service  # 服务名称
-jdbc:  # 数据源链接信息
-  driverClassName: com.mysql.jdbc.Driver
-  url: j
-mybatis:dbc:mysql://127.0.0.1:3306/estore
-username: root
-password: root
-  type-aliases-package: cn.bufanli.mybatis.pojo # 别名扫描宝
-  mapper-locations: classpath:mappers/*.xml # 映射文件的路径扫描
+  datasource:  //数据库配置
+    url : jdbc:mysql://localhost:3306/omss
+    username : root
+    password : root
+    driverClassName : com.mysql.jdbc.Driver
+
+
+
+
+#server:
+#  port: 8080
+#  session-timeout: 30
+#  tomcat.max-threads: 0
+#  tomcat.uri-encoding: UTF-8
+#  servlet:
+#    context-path: /music　　#配置访问时的项目名
+#spring:
+#  devtools:　　　　　　
+#  restart:
+#    enabled: true　　#这个好像是热加载，每次代码有改动就自动重启，原来的restart ClassLoader 被丢弃，重新创建一个restart ClassLoader，由于需要加载的类相比较少，所以实现了较快的重启时间。
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/omss?useUnicode=true&characterEncoding=UTF-8&useSSL=true　　#配置数据库的路径
+#    username: root　　#数据库登录名
+#    password: root   #登陆密码
+#    type: com.alibaba.druid.pool.DruidDataSource  #这个可以看一下 https://blog.csdn.net/qq_27191423/article/details/79146855
+#    driver-class-name: com.mysql.jdbc.Driver
+#    filters: stat
+#    maxActive: 20　　#连接池的最大值，同一时间可以从池分配的最多连接数量，0时无限制
+#    initialSize: 1　　#连接初始值，连接池启动时创建的连接数量的初始值
+#    maxWait: 60000
+#    minIdle: 1　　#最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请
+#    timeBetweenEvictionRunsMillis: 60000
+#    minEvictableIdleTimeMillis: 300000
+#    validationQuery: select 'x'
+#    testWhileIdle: true
+#    testOnBorrow: false
+#    testOnReturn: false
+#    poolPreparedStatements: true 　　#是否对已备语句进行池管理（布尔值），是否对PreparedStatement进行缓存
+#    maxOpenPreparedStatements: 20
+
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+8
+
+#mybatis-plus:
+#  mapper-locations: classpath*:mapper/**/*Mapper.xml
+#  #实体扫描，多个package用逗号或者分号分隔
+#  typeAliasesPackage: com.yudao.platform.entity.*
+#  global-config:
+#    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+#    id-type: 0
+#    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+#    field-strategy: 2
+#    #驼峰下划线转换
+#    db-column-underline: false
+#    #刷新mapper 调试神器
+#    refresh-mapper: true
+#    #数据库大写下划线转换
+#    #capital-mode: true
+#    # Sequence序列接口实现类配置
+#    #key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
+#    #逻辑删除配置
+#    logic-delete-value: 1
+#    logic-not-delete-value: 0
+#    #自定义填充策略接口实现
+#    #meta-object-handler: com.baomidou.springboot.xxx
+#    #自定义SQL注入器
+#    # sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    cache-enabled: false
+#    call-setters-on-nulls: true
