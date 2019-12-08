@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="app" xmlns:th="http://www.thymeleaf.org" th:fragment="table_refresh">
+<head>
+    <meta charset="utf-8"/>
+    <title>Musik | Web Application</title>
+    <meta name="description"
+          content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" th:href="@{/asserts/js/jPlayer/jplayer.flat.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/asserts/css/animate.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/asserts/css/font-awesome.min.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/asserts/css/simple-line-icons.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/asserts/css/font.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/asserts/css/app.css}" type="text/css"/>
+    <!--[if lt IE 9]>
+    <script th:src="@{/asserts/js/ie/html5shiv.js}"></script>
+    <script th:src="@{/asserts/js/ie/respond.min.js}"></script>
+    <script th:src="@{/asserts/js/ie/excanvas.js}"></script>
+    <![endif]-->
+</head>
+<body class="bg-info dker" >
+<section id="content" class="m-t-lg wrapper-md animated fadeInUp">
+    <div class="container aside-xl" style="margin-top: 70px">
+        <a class="navbar-brand block" th:href="@{/index.html}">
+            <span class="h1 font-bold">Musik</span>
+        </a>
+        <section class="m-b-lg">
+            <header class="wrapper text-center">
+                <strong th:text="#{signin.tip}">Sign in to get in touch</strong>
+            </header>
+
+            <p style="color: #f21b1b;font-size: 20px;text-align: center"   th:text="${emsg}" th:if="${not #strings.isEmpty(emsg)}"></p>
+            <!--需要刷新的部分-->
+<!--            <form th:action="@{/user/login}" method="post" >-->
+                <div class="form-group" >
+                    <input type="email" name="user_email" placeholder="Email"
+                           class="form-control rounded input-lg text-center no-border" th:placeholder="#{signin.email}">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" name="user_password"
+                           class="form-control rounded input-lg text-center no-border"
+                           th:placeholder="#{signin.password}">
+                </div>
+                <button type="submit" onclick="FormSubmit()" class="btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded">
+                    <i class="icon-arrow-right pull-right"></i>
+                    <span class="m-r-n-lg" th:text="#{signin.signin}">Sign in</span>
+                </button>
+                <div class="text-center m-t m-b"><a href="#">
+                    <a th:text="#{signin.forgot}">Forgot password?</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:href="@{/signin.html(l='zh_CN')}">中文</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:href="@{/signin.html(l='en_US')}">English</a>
+                </a></div>
+<!--                <div class="line line-dashed">-->
+<!--                    <hr/>-->
+<!--                </div>-->
+                <hr/>
+                <p class="text-muted text-center">
+                    <small th:text="#{signin.tip2}">Do not have an account?</small>
+                </p>
+                <a th:href="@{/signup.html}" class="btn btn-lg btn-info btn-block rounded" th:text="#{signin.signup}">Create
+                    an account</a>
+<!--            </form>-->
+        </section>
+    </div>
+</section>
+
+<script th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
+<!-- Bootstrap -->
+<script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.js}"></script>
+<!-- App -->
+<script th:src="@{/asserts/js/app.js}"></script>
+<script th:src="@{/asserts/js/slimscroll/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/asserts/js/app.plugin.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/jPlayer/jquery.jplayer.min.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/jPlayer/add-on/jplayer.playlist.min.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/jPlayer/demo.js}"></script>
+</body>
+<script th:inline="javascript">
+    function FormSubmit(){
+        $.ajax({
+            url: "/user/login",
+            type: "post",
+            dataType: 'json',
+            data: {
+                "reg_name": [[#{user_email}]],
+                "reg_password": [[#{user_password}]],
+            },
+            success: function(result) {
+                if(result.emsg != null) {
+                    //登录失败
+                    $("form")[0].reset();
+                    layer.msg(result.emsg, {
+                        icon: 5
+                    });
+                    // layer.msg("注册成功");
+                    // setTimeout("location='index'", 200);
+                } else {
+                    layer.msg("登录成功");
+                    setTimeout("/index", 200);
+                }
+            }
+        });
+    };
+</script>
+</html>

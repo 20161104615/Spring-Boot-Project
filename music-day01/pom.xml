@@ -32,6 +32,32 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--bootstrap jar的依赖-->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
+        <!-- jquery 依赖 -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
+        <!--jsp依赖-->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
         <!-- mybatis依赖 -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -56,6 +82,25 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <!--        &lt;!&ndash;热部署依赖&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-devtools</artifactId>-->
+        <!--            <optional>true</optional>-->
+        <!--        </dependency>-->
+
+        <!-- json依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-json</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -65,5 +110,34 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+
+        <!--放行-->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.js</include>
+                    <include>**/*.css</include>
+                    <include>**/*.jpg</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.ftl</include>
+                    <include>**/*.drl</include>
+                    <include>**/*.html</include>
+                    <include>**/*.png</include>
+                    <include>**/*.ico</include>
+                    <include>**/*.svg</include>
+                    <include>**/*.ttf</include>
+                    <include>**/*.woff</include>
+                    <include>**/*.vm</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.ttf</include>
+                    <include>**/*.min.js</include>
+                    <include>**/*.less</include>
+                    <include>**/*.php</include>
+                    <include>**/*.jsm</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 </project>
