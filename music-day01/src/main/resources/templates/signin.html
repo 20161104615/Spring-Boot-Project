@@ -19,9 +19,9 @@
     <script th:src="@{/asserts/js/ie/excanvas.js}"></script>
     <![endif]-->
 </head>
-<body class="bg-info dker" >
+<body class="bg-info dker">
 <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
-    <div class="container aside-xl" style="margin-top: 70px">
+    <div class="container aside-xl" style="margin-top: 60px">
         <a class="navbar-brand block" th:href="@{/index.html}">
             <span class="h1 font-bold">Musik</span>
         </a>
@@ -30,37 +30,42 @@
                 <strong th:text="#{signin.tip}">Sign in to get in touch</strong>
             </header>
 
-            <p style="color: #f21b1b;font-size: 20px;text-align: center"   th:text="${emsg}" th:if="${not #strings.isEmpty(emsg)}"></p>
             <!--需要刷新的部分-->
-<!--            <form th:action="@{/user/login}" method="post" >-->
-                <div class="form-group" >
-                    <input type="email" name="user_email" placeholder="Email"
-                           class="form-control rounded input-lg text-center no-border" th:placeholder="#{signin.email}">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" name="user_password"
-                           class="form-control rounded input-lg text-center no-border"
-                           th:placeholder="#{signin.password}">
-                </div>
-                <button type="submit" onclick="FormSubmit()" class="btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded">
-                    <i class="icon-arrow-right pull-right"></i>
-                    <span class="m-r-n-lg" th:text="#{signin.signin}">Sign in</span>
-                </button>
-                <div class="text-center m-t m-b"><a href="#">
-                    <a th:text="#{signin.forgot}">Forgot password?</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a th:href="@{/signin.html(l='zh_CN')}">中文</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a th:href="@{/signin.html(l='en_US')}">English</a>
-                </a></div>
-<!--                <div class="line line-dashed">-->
-<!--                    <hr/>-->
-<!--                </div>-->
-                <hr/>
-                <p class="text-muted text-center">
-                    <small th:text="#{signin.tip2}">Do not have an account?</small>
-                </p>
-                <a th:href="@{/signup.html}" class="btn btn-lg btn-info btn-block rounded" th:text="#{signin.signup}">Create
-                    an account</a>
-<!--            </form>-->
+            <!--<form th:action="@{/user/login}" method="post" >-->
+
+            <div class="form-group">
+                <input type="email" id="user_email" name="user_email" placeholder="Email"
+                       class="form-control rounded input-lg text-center no-border" th:placeholder="#{signin.email}">
+
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Password" id="user_password" name="user_password"
+                       class="form-control rounded input-lg text-center no-border"
+                       th:placeholder="#{signin.password}">
+                <p id="tip_password" style="color: #f277da;font-size: 15px;text-align: center; margin-top: 15px"></p>
+                <p id="tip_email" style="color: #f277da;font-size: 12px;text-align: center; margin-top: 15px"></p>
+            </div>
+
+            <button type="submit" onclick="FormSubmit()"
+                    class="btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded">
+                <i class="icon-arrow-right pull-right"></i>
+                <span class="m-r-n-lg" th:text="#{signin.signin}">Sign in</span>
+            </button>
+            <div class="text-center m-t m-b"><a href="#">
+                <a th:text="#{signin.forgot}">Forgot password?</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{/signin.html(l='zh_CN')}">中文</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{/signin.html(l='en_US')}">English</a>
+            </a></div>
+            <!--<div class="line line-dashed">-->
+            <!--<hr/>-->
+            <!--</div>-->
+            <hr/>
+            <p class="text-muted text-center">
+                <small th:text="#{signin.tip2}">Do not have an account?</small>
+            </p>
+            <a th:href="@{/signup.html}" class="btn btn-lg btn-info btn-block rounded" th:text="#{signin.signup}">Create
+                an account</a>
+            <!--</form>-->
         </section>
     </div>
 </section>
@@ -77,27 +82,25 @@
 <script type="text/javascript" th:src="@{/asserts/js/jPlayer/demo.js}"></script>
 </body>
 <script th:inline="javascript">
-    function FormSubmit(){
+    function FormSubmit() {
         $.ajax({
-            url: "/user/login",
+            url: "user/login",
             type: "post",
             dataType: 'json',
             data: {
-                "reg_name": [[#{user_email}]],
-                "reg_password": [[#{user_password}]],
+                "user_email": $("#user_email").val(),
+                "user_password": $("#user_password").val(),
             },
-            success: function(result) {
-                if(result.emsg != null) {
+            success: function (result) {
+                if (result.stat == 0) {
                     //登录失败
-                    $("form")[0].reset();
-                    layer.msg(result.emsg, {
-                        icon: 5
-                    });
-                    // layer.msg("注册成功");
-                    // setTimeout("location='index'", 200);
+                    $("#user_password").val("");
+                    document.getElementById("tip_password").innerText = [[#{tip_password}]];
+                    document.getElementById("tip_email").innerText='';
                 } else {
-                    layer.msg("登录成功");
-                    setTimeout("/index", 200);
+                    document.getElementById("tip_password").innerText = '';
+                    document.getElementById("tip_email").innerText=[[#{tip_email}]];
+                    setTimeout("location='index.html'", 150);
                 }
             }
         });
