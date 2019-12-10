@@ -1,5 +1,9 @@
 <!DOCTYPE html>
+<<<<<<< Updated upstream
 <html lang="en" class="app" xmlns:th="http://www.thymeleaf.org" >
+=======
+<html lang="en" class="app" xmlns:th="http://www.thymeleaf.org">
+>>>>>>> Stashed changes
 <head>
     <meta charset="utf-8"/>
     <title>Musik | Web Application</title>
@@ -1388,5 +1392,21 @@
 <script type="text/javascript" th:src="@{/asserts/js/jPlayer/jquery.jplayer.min.js}"></script>
 <script type="text/javascript" th:src="@{/asserts/js/jPlayer/add-on/jplayer.playlist.min.js}"></script>
 <script type="text/javascript" th:src="@{/asserts/js/jPlayer/demo.js}"></script>
+<<<<<<< Updated upstream
+=======
+<script>
+    $("a").click(function() {
+        alert($(this).attr('href'));
+        var inurl = $(this).attr('href');
+        switch (inurl) {
+            case "/music/profile.html":
+                location.href="/music/profile";
+            default:
+                $(this).attr('href','#');
+                break;
+        }
+    });
+</script>
+>>>>>>> Stashed changes
 </body>
 </html>

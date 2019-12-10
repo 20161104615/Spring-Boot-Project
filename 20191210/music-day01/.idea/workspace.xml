@@ -39,8 +39,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/profile.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="12027">
               <caret line="765" column="30" selection-start-line="765" selection-start-column="30" selection-end-line="765" selection-end-column="30" />
+=======
+            <state relative-caret-position="51">
+              <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -48,8 +53,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="493">
               <caret line="1400" column="9" lean-forward="true" selection-start-line="1400" selection-start-column="9" selection-end-line="1400" selection-end-column="9" />
+=======
+            <state relative-caret-position="171">
+              <caret line="97" column="48" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="48" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -57,7 +67,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ys/demo/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="526">
+=======
+            <state relative-caret-position="969">
+>>>>>>> Stashed changes
               <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -69,7 +83,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ys/demo/config/MyMvcConfig.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="244">
+=======
+            <state relative-caret-position="589">
+>>>>>>> Stashed changes
               <caret line="31" column="95" selection-start-line="31" selection-start-column="95" selection-end-line="31" selection-end-column="95" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -93,7 +111,10 @@
     <findStrings>
       <find>p1</find>
       <find>login</find>
+<<<<<<< Updated upstream
       <find>a0</find>
+=======
+>>>>>>> Stashed changes
       <find>Logout</find>
       <find>&lt;p id=&quot;tip&quot; style=&quot;color: #f21b1b;font-size: 20px;text-align: center&quot; th:fragment=&quot;copy&quot;&gt;&lt;/p&gt;</find>
       <find>icon-</find>
@@ -104,6 +125,11 @@
       <find>Prof</find>
       <find>Pro</find>
       <find>Profile</find>
+<<<<<<< Updated upstream
+=======
+      <find>a0</find>
+      <find>J</find>
+>>>>>>> Stashed changes
     </findStrings>
     <replaceStrings>
       <replace>Logout</replace>
@@ -148,12 +174,19 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/signup.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/signin.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/genres.html" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/src/main/resources/templates/profile.html" />
+=======
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/src/main/java/com/ys/demo/component/MyLocaleResolver.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ys/demo/config/MyMvcConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ys/demo/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+<<<<<<< Updated upstream
+=======
+        <option value="$PROJECT_DIR$/src/main/resources/templates/profile.html" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -199,6 +232,70 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< Updated upstream
+=======
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="music-day01" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\JavaProgram\SpringMVC\music-day01" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="music-day01" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\JavaProgram\SpringMVC\music-day01" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="music-day01" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\JavaProgram\SpringMVC\music-day01" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name=".mvn/wrapper" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="music-day01" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\JavaProgram\SpringMVC\music-day01" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="music-day01" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\JavaProgram\SpringMVC\music-day01" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="music-day01" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\JavaProgram\SpringMVC\music-day01" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="music-day01" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\JavaProgram\SpringMVC\music-day01" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com.ys.demo" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="music-day01" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\JavaProgram\SpringMVC\music-day01" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test/java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="music-day01" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\JavaProgram\SpringMVC\music-day01" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test/java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com.ys.demo" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+>>>>>>> Stashed changes
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -281,6 +378,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+<<<<<<< Updated upstream
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -342,12 +440,35 @@
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="test/java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="com.ys.demo" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+=======
+              <item name="asserts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-day01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-day01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="asserts" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-day01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-day01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+>>>>>>> Stashed changes
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< Updated upstream
       <pane id="PackagesPane" />
+=======
+>>>>>>> Stashed changes
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -440,11 +561,19 @@
       <workItem from="1575947157254" duration="396000" />
       <workItem from="1575947560726" duration="748000" />
       <workItem from="1575948734535" duration="2472000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1575951642404" duration="330000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="104140000" />
+=======
+    <option name="totallyTimeSpent" value="104470000" />
+>>>>>>> Stashed changes
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -473,7 +602,11 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39892906" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+<<<<<<< Updated upstream
       <window_info anchor="bottom" id="Run Dashboard" order="6" weight="0.4605087" />
+=======
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="6" visible="true" weight="0.43105757" />
+>>>>>>> Stashed changes
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32931727" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32931727" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32931727" />
@@ -959,16 +1092,24 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ys/demo/config/MyMvcConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="31" column="95" selection-start-line="31" selection-start-column="95" selection-end-line="31" selection-end-column="95" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ys/demo/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+>>>>>>> Stashed changes
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -983,13 +1124,34 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ys/demo/config/MyMvcConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="31" column="95" selection-start-line="31" selection-start-column="95" selection-end-line="31" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="97" column="48" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="48" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/profile.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="12027">
           <caret line="765" column="30" selection-start-line="765" selection-start-column="30" selection-end-line="765" selection-end-column="30" />
+=======
+        <state relative-caret-position="51">
+          <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
