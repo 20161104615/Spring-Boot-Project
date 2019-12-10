@@ -22,6 +22,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 registry.addViewController("/signin.html").setViewName("signin");
                 registry.addViewController("/signup.html").setViewName("signup");
                 registry.addViewController("/modal.lockme.html").setViewName("signin");
+                registry.addViewController("/profile").setViewName("profile");
             }
 
             //拦截器注册

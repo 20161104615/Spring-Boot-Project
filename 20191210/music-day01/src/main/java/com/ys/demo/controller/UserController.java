@@ -45,4 +45,10 @@ public class UserController {
             response.getWriter().print(jsonObject);
         }
     }
+
+    @PostMapping("/profile")
+    public String userProfileShow(){
+
+        return "redirect:/music/profile";
+    }
 }
