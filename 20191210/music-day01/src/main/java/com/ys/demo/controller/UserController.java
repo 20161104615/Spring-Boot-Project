@@ -48,7 +48,7 @@ public class UserController {
 
     @PostMapping("/profile")
     public String userProfileShow(){
-
+        System.out.println("进入了userProfileShow");
         return "redirect:/music/profile";
     }
 }
