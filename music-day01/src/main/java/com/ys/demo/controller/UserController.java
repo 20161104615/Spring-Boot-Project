@@ -34,7 +34,7 @@ public class UserController {
         if (!StringUtils.isEmpty(user_email) && "123".equals(user_password)) {
             //登录成功,防止二次提交表单
             System.out.println("密码正确");
-            session.setAttribute("loginUser", user_email);
+            request.getSession().setAttribute("loginUser", user_email);
             jsonObject = JSONObject.fromObject(map);
             response.getWriter().print(jsonObject);
         } else {
@@ -44,5 +44,11 @@ public class UserController {
             jsonObject = JSONObject.fromObject(map);
             response.getWriter().print(jsonObject);
         }
+    }
+
+    @PostMapping("/profile")
+    public String userProfileShow(){
+        System.out.println("进入了userProfileShow");
+        return "redirect:/music/profile";
     }
 }

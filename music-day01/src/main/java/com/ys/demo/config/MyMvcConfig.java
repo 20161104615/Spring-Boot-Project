@@ -22,13 +22,15 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 registry.addViewController("/signin.html").setViewName("signin");
                 registry.addViewController("/signup.html").setViewName("signup");
                 registry.addViewController("/modal.lockme.html").setViewName("signin");
+                registry.addViewController("/profile").setViewName("profile");
+                registry.addViewController("/profile.html").setViewName("profile");
             }
 
             //拦截器注册
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
-                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/signup.html").
-                        excludePathPatterns("/","/signin.html","/user/login","/modal.lockme.html");
+                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/404.html").
+                        excludePathPatterns("/","/signin.html","/user/login","/modal.lockme.html","/signup.html","/genres.html");
             }
         };
         return adapter;
@@ -38,4 +40,5 @@ public class MyMvcConfig implements WebMvcConfigurer {
     public LocaleResolver localeResolver() {
         return new MyLocaleResolver();
     }
+
 }

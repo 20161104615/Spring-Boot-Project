@@ -12,7 +12,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public boolean userRegist(user user) {
-        return false;
+         return false;
     }
 
     @Override
