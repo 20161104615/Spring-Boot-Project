@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 登录检查
+ *
+ * 二次登录出错
  */
 public class LoginHandlerInterceptor implements HandlerInterceptor {
 

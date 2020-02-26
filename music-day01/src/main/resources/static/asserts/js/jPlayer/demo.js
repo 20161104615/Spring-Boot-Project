@@ -1,58 +1,36 @@
-$(document).ready(function(){
-
+ $(document).ready(function(){
   var myPlaylist = new jPlayerPlaylist({
     jPlayer: "#jplayer_N",
     cssSelectorAncestor: "#jp_container_N"
   }, [
     {
-      title:"Busted Chump",
-      artist:"ADG3",
-      mp3:"http://flatfull.com/themes/assets/musics/adg3com_bustedchump.mp3",
-      poster: "images/m0.jpg"
-    },
-    {
-      title:"Chucked Knuckles",
-      artist:"3studios",
-      mp3:"http://flatfull.com/themes/assets/musics/adg3com_chuckedknuckles.mp3",
-      poster: "images/m0.jpg"
-    },
-    {
-      title:"Cloudless Days",
-      artist:"ADG3 Studios",
-      mp3:"http://flatfull.com/themes/assets/musics/adg3com_cloudlessdays.mp3",
-      poster: "images/m0.jpg"
-    },
-    {
-      title:"Core Issues",
-      artist:"Studios",
-      mp3:"http://flatfull.com/themes/assets/musics/adg3com_coreissues.mp3",
-      poster: "images/m0.jpg"
-    },
-    {
-      title:"Cryptic Psyche",
-      artist:"ADG3",
-      mp3:"http://flatfull.com/themes/assets/musics/adg3com_crypticpsyche.mp3",
-      poster: "images/m0.jpg"
-    },
-    {
-      title:"Electro Freak",
-      artist:"Studios",
-      mp3:"http://flatfull.com/themes/assets/musics/adg3com_electrofreak.mp3",
-      poster: "images/m0.jpg"
-    },
-    {
-      title:"Freeform",
-      artist:"ADG",
-      mp3:"http://flatfull.com/themes/assets/musics/adg3com_freeform.mp3",
-      poster: "images/m0.jpg"
+      title:"麻雀",
+      artist:"李荣浩",
+      m4a:"/music/asserts/media/maque.m4a",
+      poster: "/music/asserts/music/maque.m4a"
+    },{
+      title:"下山",
+      artist:"要不要买菜",
+      m4a:"/music/asserts/media/下山.m4a",
+      poster: "/music/asserts/music/maque.m4a"
+    },{
+      title:"演员",
+      artist:"薛之谦",
+      m4a:"/music/asserts/media/下山.m4a",
+      poster: "/music/asserts/music/maque.m4a"
+    },{
+      title:"爱久见人心",
+      artist:"梁静茹",
+      m4a:"http://localhost:8080/media/爱久见人心.m4a",
+      poster: "/music/asserts/music/maque.m4a"
     }
   ], {
     playlistOptions: {
       enableRemoveControls: true,
-      autoPlay: true
+      autoPlay: false
     },
-    swfPath: "js/jPlayer",
-    supplied: "webmv, ogv, m4v, oga, mp3",
+    swfPath: "asserts/js/jPlayer",
+    supplied: "webmv, ogv, m4v, oga, mp3, m4a",
     smoothPlayBar: true,
     keyEnabled: true,
     audioFullScreen: false
@@ -85,12 +63,9 @@ $(document).ready(function(){
       myPlaylist.play(i);
     }
     
-  });
-
-
+  }).jPlayer("play");
 
   // video
-
   $("#jplayer_1").jPlayer({
     ready: function () {
       $(this).jPlayer("setMedia", {

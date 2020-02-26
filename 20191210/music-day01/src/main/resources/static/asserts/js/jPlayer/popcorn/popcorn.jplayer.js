@@ -17,19 +17,23 @@
  */
 
 /* Code verified using http://www.jshint.com/ */
-/*jshint asi:false, bitwise:false, boss:false, browser:true, curly:false, debug:false, eqeqeq:true, eqnull:false, evil:false, forin:false, immed:false, jquery:true, laxbreak:false, newcap:true, noarg:true, noempty:true, nonew:true, onevar:false, passfail:false, plusplus:false, regexp:false, undef:true, sub:false, strict:false, white:false, smarttabs:true */
+/*jshint asi:false, bitwise:false, boss:false, browser:true, curly:false, debug:false,
+eqeqeq:true, eqnull:false, evil:false, forin:false, immed:false, jquery:true,
+laxbreak:false, newcap:true, noarg:true, noempty:true, nonew:true, onevar:false,
+passfail:false, plusplus:false, regexp:false, undef:true, sub:false, strict:false, white:false, smarttabs:true */
 /*global Popcorn:false, console:false */
 
 (function(Popcorn) {
 
-	var JQUERY_SCRIPT = '//code.jquery.com/jquery-1.11.0.min.js', // Used if jQuery not already present.
-	JPLAYER_SCRIPT = '//www.jplayer.org/2.6.0/js/jquery.jplayer.min.js', // Used if jPlayer not already present.
-	JPLAYER_SWFPATH = '//www.jplayer.org/2.6.0/js/Jplayer.swf', // Used if not specified in jPlayer options via SRC Object.
-	SOLUTION = 'html,flash', // The default solution option.
-	DEBUG = false, // Decided to leave the debugging option and console output in for the time being. Overhead is trivial.
-	jQueryDownloading = false, // Flag to stop multiple instances from each pulling in jQuery, thus corrupting it.
-	jPlayerDownloading = false, // Flag to stop multiple instances from each pulling in jPlayer, thus corrupting it.
+	var JQUERY_SCRIPT = '//code.jquery.com/jquery-1.11.0.min.js', // Used if jQuery not already present.(如果 jQuery 不存在，则使用。)
+	JPLAYER_SCRIPT = '//www.jplayer.org/2.6.0/js/jquery.jplayer.min.js', // Used if jPlayer not already present.(如果 jPlayer 不存在，则使用。)
+	JPLAYER_SWFPATH = '//www.jplayer.org/2.6.0/js/Jplayer.swf', // Used if not specified in jPlayer options via SRC Object.(如果在 jPlayer 选项中未通过 SRC 对象指定，则使用。)
+	SOLUTION = 'html,flash', // The default solution option.(默认解决方案选项。)
+	DEBUG = false, // Decided to leave the debugging option and console output in for the time being. Overhead is trivial.(决定暂时保留调试选项和控制台输出。开销是微不足道的。)
+	jQueryDownloading = false, // Flag to stop multiple instances from each pulling in jQuery, thus corrupting it.(标记以停止每个拉 jQuery 中的多个实例，从而损坏它)
+	jPlayerDownloading = false, // Flag to stop multiple instances from each pulling in jPlayer, thus corrupting it.(标记以停止每个拉 jPlayer 中的多个实例，从而损坏它。)
 	format = { // Duplicate of jPlayer 2.5.0 object, to avoid always requiring jQuery and jPlayer to be loaded before performing the _canPlayType() test.
+			  // /*jPlayer 2.5.0 对象的复制，以避免在执行_canPlayType（） 测试之前始终需要加载 jQuery 和 jPlayer。*/
 		mp3: {
 			codec: 'audio/mpeg; codecs="mp3"',
 			flashCanPlay: true,
@@ -123,7 +127,7 @@
 			return false;
 		}
 	},
-	getMediaType = function(url) { // Function to gleam the media type from the URL
+	getMediaType = function(url) { // Function to gleam the media type from the URL(从 URL 中闪烁媒体类型的功能)
 		var mediaType = false;
 		if(/\.mp3$/i.test(url)) {
 			mediaType = 'mp3';
@@ -141,10 +145,12 @@
 		return mediaType;
 	},
 	getSupplied = function(url) { // Function to generate a supplied option from an src object. ie., When supplied not specified.
+		                         // (函数，用于从 src 对象生成提供的选项。即，未指定提供时)
 		var supplied = '',
 		separator = '';
 		if(isObject(url)) {
 			// Generate supplied option from object's properties. Non-format properties would be ignored by jPlayer. Order is unpredictable.
+			// (从对象的属性生成提供的选项。jPlayer 将忽略非格式属性。顺序是不可预测的。)
 			for(var prop in url) {
 				if(url.hasOwnProperty(prop)) {
 					supplied += separator + prop;
@@ -159,22 +165,26 @@
 	Popcorn.player( 'jplayer', {
 		_canPlayType: function( containerType, url ) {
 			// url : Either a String or an Object structured similar a jPlayer media object. ie., As used by setMedia in jPlayer.
+			// (字符串或对象结构类似于 jPlayer 媒体对象。即，在 jPlayer 中设置媒体所使用的。)
 			// The url object may also contain a solution and supplied property.
+			// (url 对象还可能包含解决方案和提供的属性。)
 
 			// Define the src object structure here!
+			// (在此处定义 src 对象结构！)
 
 			var cType = containerType.toLowerCase(),
 			srcObj = {
 				media:{},
 				options:{}
 			},
-			rVal = false, // Only a boolean false means it is not supported.
+			rVal = false, // Only a boolean false means it is not supported. (只有布尔为假 表示它不受支持)
 			mediaType;
 
 			if(cType !== 'video' && cType !== 'audio') {
 
 				if(typeof url === 'string') {
 					// Check it starts with http, so the URL is absolute... Well, it is not a perfect check.
+					// （检查它从 http 开始，所以 URL 是绝对...嗯，这不是一个完美的检查。）
 					if(/^http.*/i.test(url)) {
 						mediaType = getMediaType(url);
 						if(mediaType) {
@@ -184,10 +194,10 @@
 						}
 					}
 				} else {
-					srcObj = url; // Assume the url is an src object.
+					srcObj = url; // Assume the url is an src object.（假设 url 是 src 对象）
 				}
 
-				// Check for Object and appropriate minimum data structure.
+				// Check for Object and appropriate minimum data structure.（检查对象和适当的最小数据结构。）
 				if(isObject(srcObj) && isObject(srcObj.media)) {
 
 					if(!isObject(srcObj.options)) {

@@ -1,24 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="app" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <title>Musik | Web Application</title>
-    <meta name="description"
-          content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <link rel="stylesheet" th:href="@{/asserts/js/jPlayer/jplayer.flat.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/asserts/css/animate.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/asserts/css/font-awesome.min.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/asserts/css/simple-line-icons.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/asserts/css/font.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/asserts/css/app.css}" type="text/css"/>
-    <!--[if lt IE 9]>
-    <script th:src="@{/asserts/js/ie/html5shiv.js}"></script>
-    <script th:src="@{/asserts/js/ie/respond.min.js}"></script>
-    <script th:src="@{/asserts/js/ie/excanvas.js}"></script>
-    <![endif]-->
-</head>
+<head th:replace="public :: public_head_head"></head>
 <body class="">
 <section class="vbox">
     <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
@@ -415,7 +397,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="404.html" class="auto">
+                                                <a href="error/404.html" class="auto">
                                                     <i class="fa fa-angle-right text-xs"></i>
 
                                                     <span>404</span>
@@ -1152,7 +1134,6 @@
 
                                     <div class="line line-dashed b-b line-lg pull-in"></div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Datepicker</label>
                                         <div class="col-sm-10">
                                             <input class="input-sm input-s datepicker-input form-control" size="16"
                                                    type="text" value="12-02-2013" data-date-format="dd-mm-yyyy">
@@ -1160,6 +1141,8 @@
                                     </div>
 
                                     <div class="line line-dashed b-b line-lg pull-in"></div>
+
+
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">File input</label>
                                         <div class="col-sm-10">
@@ -1168,6 +1151,9 @@
                                                    data-classInput="form-control inline v-middle input-s">
                                         </div>
                                     </div>
+
+
+
                                     <div class="line line-dashed b-b line-lg pull-in"></div>
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Markdown</label>
@@ -1302,12 +1288,6 @@
         </section>
     </section>
 </section>
-<script src="js/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="js/bootstrap.js"></script>
-<!-- App -->
-<script src="js/app.js"></script>
-<script src="js/slimscroll/jquery.slimscroll.min.js"></script>
 <div class="modal fade" id="modal-form">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -1350,26 +1330,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
-<!-- datepicker -->
-<script th:src="@{/asserts/js/datepicker/bootstrap-datepicker.js}"></script>
-<!-- slider -->
-<script th:src="@{/asserts/js/slider/bootstrap-slider.js}"></script>
-<!-- file input -->
-<script th:src="@{/asserts/js/file-input/bootstrap-filestyle.min.js}"></script>
-<!-- wysiwyg -->
-<script th:src="@{/asserts/js/wysiwyg/jquery.hotkeys.js}"></script>
-<script th:src="@{/asserts/js/wysiwyg/bootstrap-wysiwyg.js}"></script>
-<script th:src="@{/asserts/js/wysiwyg/demo.js}"></script>
-<!-- markdown -->
-<script th:src="@{/asserts/js/markdown/epiceditor.min.js}"></script>
-<script th:src="@{/asserts/js/markdown/demo.js}"></script>
-
-<script th:src="@{/asserts/js/chosen/chosen.jquery.min.js}"></script>
-<script th:src="@{/asserts/js/app.js}"></script>
-<script th:src="@{/asserts/js/slimscroll/jquery.slimscroll.min.js}"></script>
-<script th:src="@{/asserts/js/app.plugin.js}"></script>
-<script type="text/javascript" th:src="@{/asserts/js/jPlayer/jquery.jplayer.min.js}"></script>
-<script type="text/javascript" th:src="@{/asserts/js/jPlayer/add-on/jplayer.playlist.min.js}"></script>
-<script type="text/javascript" th:src="@{/asserts/js/jPlayer/demo.js}"></script>
+<footer th:replace="public :: public_footer_footer"></footer>
 </body>
 </html>

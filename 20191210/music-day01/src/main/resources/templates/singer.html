@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="app-fluid" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public :: public_head_head"></head>
+<body class="">
+<section class="vbox">
+    <div th:replace="~{public :: public_head}"></div>
+    <section class="panel center">
+        <div th:replace="public :: public_navigation(activeUri='singer')"></div>
+    </section>
+    <div class="m-b center" style="position: relative; ">
+        <img src="" th:src="@{/asserts/images/bg_singer.jpg}" style="width: 100%">
+        <span style="position: absolute; bottom: 160px; left: 500px;color: white;font-size: 50px">万 千 歌 手 尽 在 眼 前</span>
+    </div>
+
+    <div class="find_select">
+        <div class="find_select_layer1">
+            <div class="find_select_letters">
+                <dl>
+                    <dt><a href="javascript:void(0)" values2="" values1=""
+                           id="find_select_letters_id">全部</a>
+                        <a href="javascript:void(0)" values2="" values1="">A</a>
+                        <a href="javascript:void(0)" values2="" values1="">B</a>
+                        <a href="javascript:void(0)" values2="" values1="">C</a>
+                        <a href="javascript:void(0)" values2="" values1="">D</a>
+                        <a href="javascript:void(0)" values2="" values1="">E</a>
+                        <a href="javascript:void(0)" values2="" values1="">F</a>
+                        <a href="javascript:void(0)" values2="" values1="">G</a>
+                        <a href="javascript:void(0)" values2="" values1="">H</a>
+                        <a href="javascript:void(0)" values2="" values1="">I</a>
+                        <a href="javascript:void(0)" values2="" values1="">J</a>
+                        <a href="javascript:void(0)" values2="" values1="">K</a>
+                        <a href="javascript:void(0)" values2="" values1="">L</a>
+                        <a href="javascript:void(0)" values2="" values1="">M</a>
+                        <a href="javascript:void(0)" values2="" values1="">N</a>
+                        <a href="javascript:void(0)" values2="" values1="">O</a>
+                        <a href="javascript:void(0)" values2="" values1="">P</a>
+                        <a href="javascript:void(0)" values2="" values1="">Q</a>
+                        <a href="javascript:void(0)" values2="" values1="">R</a>
+                        <a href="javascript:void(0)" values2="" values1="">S</a>
+                        <a href="javascript:void(0)" values2="" values1="">T</a>
+                        <a href="javascript:void(0)" values2="" values1="">U</a>
+                        <a href="javascript:void(0)" values2="" values1="">V</a>
+                        <a href="javascript:void(0)" values2="" values1="">W</a>
+                        <a href="javascript:void(0)" values2="" values1="">X</a>
+                        <a href="javascript:void(0)" values2="" values1="">Y</a>
+                        <a href="javascript:void(0)" values2="" values1="">Z</a>
+                    </dt>
+                </dl>
+            </div>
+            <div class="find_select_gender">
+                <dl>
+                    <dd>
+                        <a href="javascript:void(0)" values2="" values1=""
+                           attrval="" id="find_select_gender_id">全部</a>
+                        <a href="javascript:void(0)" values2="" values1=""
+                           attrval="">男</a>
+                        <a href="javascript:void(0)" values2="" values1=""
+                           attrval="">女</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <!--    <script type="text/javascript">-->
+    <!--    var refresh = "true";-->
+    <!--    $(".aui-screen-list-item a ").live("click", function () {-->
+    <!--        var text = $(this).text();-->
+    <!--        var selectedShow = $(".selectedShow");-->
+    <!--        var textTypeIndex = $(this).parents("dl").index();-->
+    <!--        var textType = $(this).parent("dd").siblings("dt").text();-->
+    <!--        index = textTypeIndex - (2);-->
+    <!--        $(".aui-clear-delete").show();-->
+    <!--        $(".selectedShow").eq(index).show();-->
+    <!--        $(this).addClass("selected").siblings().removeClass("selected");-->
+    <!--        selectedShow.eq(index).find("span").text(textType);-->
+    <!--        selectedShow.eq(index).find("label").text(text);-->
+    <!--        var show = $(".selectedShow").length - $(".selectedShow:hidden").length;-->
+    <!--        if (show > 1) {-->
+    <!--            $(".aui-eliminate").show();-->
+    <!--        }-->
+
+    <!--    });-->
+    <!--    $(".aui-eliminate").live("click", function () {-->
+    <!--        $(".selectedShow").hide();-->
+    <!--        $(this).hide();-->
+    <!--        $(".aui-screen-list-item a ").removeClass("selected");-->
+    <!--    });-->
+    <!--</script>-->
+</section>
+<footer th:replace="public :: public_footer_footer"></footer>
+</body>
+
+</html>

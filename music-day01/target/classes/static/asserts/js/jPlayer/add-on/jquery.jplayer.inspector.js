@@ -13,6 +13,7 @@
  * For use with jPlayer Version: 2.6.0+
  *
  * Note: Declare inspector instances after jPlayer instances. ie., Otherwise the jPlayer instance is nonsense.
+ * （在 jPlayer 实例之后声明检查器实例。即，否则 jPlayer 实例是无稽之谈。）
  */
 
 (function($, undefined) {

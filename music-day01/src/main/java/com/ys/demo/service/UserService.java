@@ -1,9 +1,11 @@
 package com.ys.demo.service;
 
-import com.ys.demo.pojo.user;
+import com.ys.demo.bean.UserBean;
 
 public interface UserService {
-    public boolean userLogin(user user);
-    public boolean userRegist(user user);
-    public boolean userUpdate(user user);
+    public UserBean userLogin(UserBean userBean);
+    public boolean userRegister(UserBean userBean);
+    public boolean userUpdate(UserBean userBean);
+    public UserBean userFind(UserBean userBean);
+    public UserBean userfindstring(String userphone);
 }

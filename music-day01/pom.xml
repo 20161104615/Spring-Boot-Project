@@ -16,6 +16,11 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <!--<commons-lang3.version>3.4</commons-lang3.version>
+        <httpclient.version>4.5.1</httpclient.version>
+        &lt;!&ndash; dbutil包版本号 &ndash;&gt;
+        <commons-dbutils.version>1.6</commons-dbutils.version>
+        &lt;!&ndash; c3p0日志包版本号 &ndash;&gt;-->
     </properties>
 
     <dependencies>
@@ -67,6 +72,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- Spring Boot JPA -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
         <!-- 测试依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -94,19 +104,19 @@
             <version>2.2.3</version>
             <classifier>jdk15</classifier>
         </dependency>
-
-        <!--maybatis依赖-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.1</version>
-        </dependency>
         <!--druid依赖-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.1.18</version>
         </dependency>
+        <!--日志依赖-->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -117,7 +127,7 @@
             </plugin>
         </plugins>
 
-        <!--放行-->
+           <!--放行-->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -140,6 +150,8 @@
                     <include>**/*.ttf</include>
                     <include>**/*.min.js</include>
                     <include>**/*.less</include>
+                    <include>**/*.mp3</include>
+                    <include>**/*.m4a</include>
                     <include>**/*.php</include>
                     <include>**/*.jsm</include>
                 </includes>

@@ -1,1112 +1,212 @@
 <!DOCTYPE html>
 <html lang="en" class="app" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <title>Musik | Web Application</title>
-    <meta name="description"
-          content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <link rel="stylesheet" th:href="@{/asserts/js/jPlayer/jplayer.flat.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/asserts/css/animate.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/asserts/css/font-awesome.min.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/asserts/css/simple-line-icons.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/asserts/css/font.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/asserts/css/app.css}" type="text/css"/>
-
-    <!--[if lt IE 9]>
-    <script th:src="@{/asserts/js/ie/html5shiv.js}"></script>
-    <script th:src="@{/asserts/js/ie/respond.min.js}"></script>
-    <script th:src="@{/asserts/js/ie/excanvas.js}"></script>
-    <![endif]-->
-</head>
+<head th:replace="public :: public_head_head"></head>
 <body class="">
-<section class="vbox">
-    <header class="bg-white-only header header-md navbar navbar-fixed-top-xs" style="background-color: #FAEAD3">
-        <div class="navbar-header aside bg-info nav-xs" style="background-color: #B5C4B1">
-            <a th:href="@{/index.html}" class="navbar-brand text-lt">
-                <i class="icon-earphones"></i>
-            </a>
-        </div>
+<section class="vbox" style="background-color: rgba(53,255,84,0.04)">
+    <div th:replace="~{public :: public_head}"></div>
+    <section class="vbox">
+        <section class="scrollable padder-lg-ys-1 w-f-md" id="bjax-target">
+            <section class="panel center">
+                <div th:replace="~{public :: public_navigation}"></div>
+            </section>
+            <!-- 论播2 -->
+            <div class="col-lg-12" style="margin-top: 5px;border: 20px">
+                <section class="panel panel-default">
+                    <div class="carousel slide auto panel-body" id="c-slide2">
+                        <ol class="carousel-indicators out">
+                            <li data-target="#c-slide2" data-slide-to="0" class="active"></li>
+                            <li data-target="#c-slide2" data-slide-to="1" class=""></li>
+                            <li data-target="#c-slide2" data-slide-to="2" class=""></li>
+                            <li data-target="#c-slide2" data-slide-to="3" class=""></li>
+                            <li data-target="#c-slide2" data-slide-to="4" class=""></li>
+                            <li data-target="#c-slide2" data-slide-to="5" class=""></li>
+                            <li data-target="#c-slide2" data-slide-to="6" class=""></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div id="Carousel-2-0" class="item active">
+                                <h3><p class="text-center">热门歌曲</p></h3>
+                                <br>
 
-        <div class="navbar-header center aside" style="margin-left: 4rem;">
-            <div class="btn btn-link  doc-buttons" data-toggle="dropdown">
-                <a href="#" class="btn btn-s-md " style="width: 23rem;background-color: #C1CBD7">Primary</a>
-                <a href="#" class="btn btn-s-md " style="width: 23rem;background-color: #E0E5DF">Success</a>
-                <a href="#" class="btn btn-s-md " style="width: 23rem;background-color: #E0CACF">Danger</a>
-                <a href="#" class="btn btn-s-md " style="width: 23rem;background-color: #EEE5F8">Dark</a>
-            </div>
-        </div>
-
-        <div class="navbar-right">
-            <ul class="nav navbar-nav m-n hidden-xs nav-user user">
-                <li class="dropdown">
-                    <form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs " role="search">
-                        <div class="form-group">
-                            <div class="input-group">
-			        <span class="input-group-btn">
-			          <button type="submit" class="btn btn-sm bg-white btn-icon rounded"><i
-                              class="fa fa-search"></i></button>
-			        </span>
-                                <input type="text" style="width: 21rem;" class="form-control input-sm no-border rounded"
-                                       placeholder="    Search songs, albums......">
+                                <p class="text-center" style="float: left;margin-left: 200px">
+                                    <em class="h4 text-mute">
+                                        <img th:src="${session.MusicList[0].getMusic_img()}"
+                                             style="height: 270px; width: 500px"/>
+                                    </em><br>
+                                    <small class="text-muted"><a name="song" href="#">[[${session.MusicList[0].getMusic_name()}]]</a></small>
+                                </p>
+                                <p class="text-center" style="float: right;margin-right: 200px">
+                                    <em class="h4 text-mute">
+                                        <img th:src="${session.MusicList[1].getMusic_img()}"
+                                             style="height: 270px; width: 500px"/></em><br>
+                                    <small class="text-muted"><a name="song" href="#">[[${session.MusicList[1].getMusic_name()}]]</a></small>
+                                </p>
+                                </a>
                             </div>
+                            <th:block th:each="k:${#numbers.sequence(2,7)}">
+                                <div id="Carousel-2-1" class="item">
+                                    <h3><p class="text-center">热门歌曲</p></h3>
+                                    <br>
+
+                                    <p class="text-center" style="float: left;margin-left: 200px">
+                                        <em class="h4 text-mute"><a name="song" href="#"><img
+                                                th:src="${session.MusicList[k].getMusic_img()}"
+                                                style="height: 270px; width: 500px"/></a></em><br>
+                                        <small class="text-muted"><a name="song" href="#">[[${session.MusicList[k].getMusic_name()}]]</a></small>
+                                    </p>
+                                    <p class="text-center" style="float: right;margin-right: 200px">
+                                        <em class="h4 text-mute"><img
+                                                th:src="${session.MusicList[k+6].getMusic_img()}"
+                                                style="height: 270px; width: 500px"/></em><br>
+                                        <small class="text-muted"><a name="song" href="#">[[${session.MusicList[k+6].getMusic_name()}]]</a></small>
+                                    </p>
+                                    </a>
+                                </div>
+                            </th:block>
                         </div>
-                    </form>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
-              <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
-                <img th:src="@{/asserts/images/a0.png}" alt="...">
-              </span>
-                        [[*{session.loginUser}]] <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu animated fadeInRight">
-                        <li>
-                            <span class="arrow top"></span>
-                            <a href="#">Settings</a>
-                        </li>
-                        <li>
-                            <a href="profile.html">Profile</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="badge bg-danger pull-right">3</span>
-                                Notifications
-                            </a>
-                        </li>
-                        <li>
-                            <a href="docs.html">Help</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </header>
-    <section>
-        <section class="hbox stretch"></section>
-    </section>
-    </aside>
-    <!-- /.aside -->
-    <section id="content">
-        <section class="hbox stretch">
-            <section>
-                <section class="vbox">
-                    <section class="scrollable padder-lg w-f-md" id="bjax-target">
-                        <!-- 论播 -->
-                        <div class="col-lg-12">
-                            <section class="panel panel-default">
-                                <div class="carousel slide auto panel-body" id="c-slide">
-                                    <ol class="carousel-indicators out">
-                                        <li data-target="#c-slide" data-slide-to="0" class="active"></li>
-                                        <li data-target="#c-slide" data-slide-to="1" class=""></li>
-                                        <li data-target="#c-slide" data-slide-to="2" class=""></li>
-                                        <li data-target="#c-slide" data-slide-to="3" class=""></li>
-                                        <li data-target="#c-slide" data-slide-to="4" class=""></li>
-                                        <li data-target="#c-slide" data-slide-to="5" class=""></li>
-                                        <li data-target="#c-slide" data-slide-to="6" class=""></li>
-                                    </ol>
-                                    <div class="carousel-inner">
-                                        <div class="item active">
-                                            <p class="text-center">
-                                                <em class="h4 text-mute">Save your time</em><br>
-                                                <small class="text-muted">Many components</small>
-                                            </p>
+                        <a class="left carousel-control" href="#c-slide2" data-slide="prev">
+                            <i class="fa fa-angle-left" style="color: #2dd10d"></i>
+                        </a>
+                        <a class="right carousel-control" href="#c-slide2" data-slide="next">
+                            <i class="fa fa-angle-right" style="color: #2dd10d"></i>
+                        </a>
+                    </div>
+                </section>
+            </div>
+            <!-- /论播2 -->
+            <!--主体-->
+            <div class="padder-lg">
+                <div class="row">
+                    <div class="span6">
+                        <!-- 排行榜 -->
+                        <th:block th:each="i:${#numbers.sequence(0,2)}"><!--3列-->
+                            <div class="col-sm-4 portlet">
+                                <section class="panel panel-info portlet-item">
+                                    <header class="panel-heading">
+                                        热歌榜单
+                                    </header>
+                                    <ul class="list-group alt">
+                                        <th:block th:each="k:${#numbers.sequence(0,4)}">
+
+                                            <li class="list-group-item">
+                                                <div class="media">
+                                                    <span class="pull-left thumb-sm">
+                                                         <img th:src="${session.MusicList[k+i*5+1+13].getMusic_img()}"
+                                                              alt="..." class="img-circle"></span>
+                                                    <div class="pull-right text-success m-t-sm">
+                                                        <i class="fa fa-circle"></i>
+                                                    </div>
+                                                    <div class="media-body ">
+                                                        <div><a name="song" href="#">[[${session.MusicList[k+i*5+1+13].getMusic_name()}]]</a>
+                                                        </div>
+                                                        <small class="text-muted">[[${session.MusicList[k+i*5+1+13].getMusic_singer()}]]</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </th:block>
+                                    </ul>
+                                </section>
+                            </div>
+                        </th:block>
+                        <!-- /排行榜 -->
+                        <!--经典歌曲-->
+                        <h2 class="font-thin m-b">经典歌曲
+                            <span class="musicbar animate inline m-l-sm" style="width:20px;height:20px">
+                                <span class="bar1 a1 bg-primary lter"></span>
+                                <span class="bar2 a2 bg-info lt"></span>
+                                <span class="bar3 a3 bg-success"></span>
+                                <span class="bar4 a4 bg-warning dk"></span>
+                                <span class="bar5 a5 bg-danger dker"></span>
+                            </span>
+                        </h2>
+                        <div class="row row-sm"><!--重复12组-->
+                            <th:block th:each="k:${#numbers.sequence(0,11)}">
+                                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                                    <div class="item">
+                                        <div class="pos-rlt">
+                                            <div class="item-overlay opacity r r-2x bg-black">
+                                                <div class="center text-center m-t-n">
+                                                    <a href="#"><i class="icon-control-play i-2x"></i></a>
+                                                </div>
+                                            </div>
+                                            <img
+                                                    th:src="${session.MusicList[k+12+17].getMusic_img()}"
+                                                    alt=""
+                                                    class="r r-2x img-full"></a>
                                         </div>
-                                        <div class="item">
-                                            <p class="text-center">
-                                                <em class="h4 text-mute"><img
-                                                        th:src="@{/asserts/images/cont1/carousel_img1.jpg}"
-                                                        width="90%"/></em><br>
-                                                <small class="text-muted">Full documents</small>
-                                            </p>
-                                        </div>
-                                        <div class="item">
-                                            <p class="text-center">
-                                                <em class="h4 text-mute"><img
-                                                        th:src="@{/asserts/images/cont1/carousel_img2.jpg}"/></em><br>
-                                                <small class="text-muted">Full documents</small>
-                                            </p>
-                                        </div>
-                                        <div class="item">
-                                            <p class="text-center">
-                                                <em class="h4 text-mute"><img
-                                                        th:src="@{/asserts/images/cont1/carousel_img3.jpg}"/></em><br>
-                                                <small class="text-muted">Full documents</small>
-                                            </p>
-                                        </div>
-                                        <div class="item">
-                                            <p class="text-center">
-                                                <em class="h4 text-mute"><img
-                                                        th:src="@{/asserts/images/cont1/carousel_img4.jpg}"/></em><br>
-                                                <small class="text-muted">Full documents</small>
-                                            </p>
-                                        </div>
-                                        <div class="item">
-                                            <p class="text-center">
-                                                <em class="h4 text-mute"><img
-                                                        th:src="@{/asserts/images/cont1/carousel_img5.jpg}"/></em><br>
-                                                <small class="text-muted">Full documents</small>
-                                            </p>
-                                        </div>
-                                        <div class="item">
-                                            <p class="text-center">
-                                                <em class="h4 text-mute"><img
-                                                        th:src="@{/asserts/images/cont1/carousel_img6.jpg}"/></em><br>
-                                                <small class="text-muted">Mobile/Tablet/Desktop</small>
-                                            </p>
+                                        <div class="padder-v">
+                                            <a name="song" href="#" class="text-ellipsis">[[${session.MusicList[k+12+17].getMusic_name()}]]</a>
+                                            <div class="text-ellipsis text-xs text-muted">
+                                                [[${session.MusicList[k+12+17].getMusic_singer()}]]
+                                            </div>
                                         </div>
                                     </div>
-                                    <a class="left carousel-control" href="#c-slide" data-slide="prev">
-                                        <i class="fa fa-angle-left"></i>
-                                    </a>
-                                    <a class="right carousel-control" href="#c-slide" data-slide="next">
-                                        <i class="fa fa-angle-right"></i>
-                                    </a>
                                 </div>
-                            </section>
+                            </th:block>
                         </div>
-                        <!-- /论播 -->
+                        <!--/经典歌曲-->
                         <div class="row">
-                            <div class="span6">
-                                <!-- 排行榜 -->
-                                <div class="col-sm-4 portlet">
-                                    <section class="panel panel-success portlet-item">
-                                        <header class="panel-heading">
-                                            Connection
-                                        </header>
-                                        <ul class="list-group alt">
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                    <span class="pull-left thumb-sm"><img src="images/a1.png" alt="..."
-                                                                                          class="img-circle"></span>
-                                                    <div class="pull-right text-success m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Chris Fox</a></div>
-                                                        <small class="text-muted">about 2 minutes ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                    <span class="pull-left thumb-sm"><img src="images/a2.png" alt="..."
-                                                                                          class="img-circle"></span>
-                                                    <div class="pull-right text-muted m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Amanda Conlan</a></div>
-                                                        <small class="text-muted">about 2 hours ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                    <span class="pull-left thumb-sm"><img src="images/a3.png" alt="..."
-                                                                                          class="img-circle"></span>
-                                                    <div class="pull-right text-warning m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Dan Doorack</a></div>
-                                                        <small class="text-muted">3 days ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                    <span class="pull-left thumb-sm"><img src="images/a4.png" alt="..."
-                                                                                          class="img-circle"></span>
-                                                    <div class="pull-right text-danger m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Lauren Taylor</a></div>
-                                                        <small class="text-muted">about 2 minutes ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </section>
-                                </div>
-                                <div class="col-sm-4 portlet">
-                                    <section class="panel panel-success portlet-item">
-                                        <header class="panel-heading">
-                                            Connection
-                                        </header>
-                                        <ul class="list-group alt">
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                    <span class="pull-left thumb-sm"><img src="images/a1.png" alt="..."
-                                                                                          class="img-circle"></span>
-                                                    <div class="pull-right text-success m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Chris Fox</a></div>
-                                                        <small class="text-muted">about 2 minutes ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                    <span class="pull-left thumb-sm"><img src="images/a2.png" alt="..."
-                                                                                          class="img-circle"></span>
-                                                    <div class="pull-right text-muted m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Amanda Conlan</a></div>
-                                                        <small class="text-muted">about 2 hours ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                    <span class="pull-left thumb-sm"><img src="images/a3.png" alt="..."
-                                                                                          class="img-circle"></span>
-                                                    <div class="pull-right text-warning m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Dan Doorack</a></div>
-                                                        <small class="text-muted">3 days ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                    <span class="pull-left thumb-sm"><img src="images/a4.png" alt="..."
-                                                                                          class="img-circle"></span>
-                                                    <div class="pull-right text-danger m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Lauren Taylor</a></div>
-                                                        <small class="text-muted">about 2 minutes ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </section>
-                                </div>
-                                <div class="col-sm-4 portlet">
-                                    <section class="panel panel-success portlet-item">
-                                        <header class="panel-heading">
-                                            Connection
-                                        </header>
-                                        <ul class="list-group alt">
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                        <span class="pull-left thumb-sm"><img src="images/a1.png"
-                                                                                              alt="..."
-                                                                                              class="img-circle"></span>
-                                                    <div class="pull-right text-success m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Chris Fox</a></div>
-                                                        <small class="text-muted">about 2 minutes ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                        <span class="pull-left thumb-sm"><img src="images/a2.png"
-                                                                                              alt="..."
-                                                                                              class="img-circle"></span>
-                                                    <div class="pull-right text-muted m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Amanda Conlan</a></div>
-                                                        <small class="text-muted">about 2 hours ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                        <span class="pull-left thumb-sm"><img src="images/a3.png"
-                                                                                              alt="..."
-                                                                                              class="img-circle"></span>
-                                                    <div class="pull-right text-warning m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Dan Doorack</a></div>
-                                                        <small class="text-muted">3 days ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media">
-                                                        <span class="pull-left thumb-sm"><img src="images/a4.png"
-                                                                                              alt="..."
-                                                                                              class="img-circle"></span>
-                                                    <div class="pull-right text-danger m-t-sm">
-                                                        <i class="fa fa-circle"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div><a href="#">Lauren Taylor</a></div>
-                                                        <small class="text-muted">about 2 minutes ago</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </section>
-                                </div>
-                                <!-- /排行榜 -->
-                                <a href="#" class="pull-right text-muted m-t-lg" data-toggle="class:fa-spin" style="margin-top: 20px"><i
-                                        class="icon-refresh i-lg  inline" id="refresh"></i></a>
-                                <h2 class="font-thin m-b">Discover
-                                    <span class="musicbar animate inline m-l-sm" style="width:20px;height:20px">
+                            <!--新歌首发-->
+                            <div class="col-md-7">
+                                <h3 class="font-thin">新歌首发
+                                    <span class="musicbar animate inline m-l-sm"
+                                          style="width:20px;height:20px">
                                         <span class="bar1 a1 bg-primary lter"></span>
                                         <span class="bar2 a2 bg-info lt"></span>
                                         <span class="bar3 a3 bg-success"></span>
                                         <span class="bar4 a4 bg-warning dk"></span>
                                         <span class="bar5 a5 bg-danger dker"></span>
                                     </span>
-                                </h2>
-                                <div class="row row-sm">
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="bottom">
-                                                    <span class="badge bg-info m-l-sm m-b-sm">03:20</span>
-                                                </div>
-                                                <div class="item-overlay opacity r r-2x bg-black">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#"><i class="icon-control-play i-2x"></i></a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right">
-                                                            <i class="fa fa-heart-o"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class="fa fa-plus-circle"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserts/images/p1.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Tempered Song</a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">Miaow</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="item-overlay opacity r r-2x bg-black active">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#" data-toggle="class">
-                                                            <i class="icon-control-play i-2x text"></i>
-                                                            <i class="icon-control-pause i-2x text-active"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right active" data-toggle="class">
-                                                            <i class="fa fa-heart-o text"></i>
-                                                            <i class="fa fa-heart text-active text-danger"></i>
-                                                        </a>
-                                                        <a href="#" data-toggle="class">
-                                                            <i class="fa fa-plus-circle text"></i>
-                                                            <i class="fa fa-check-circle text-active text-info"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserts/images/p2.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Vivamus vel tincidunt libero</a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix visible-xs"></div>
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="item-overlay opacity r r-2x bg-black">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#"><i class="icon-control-play i-2x"></i></a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right">
-                                                            <i class="fa fa-heart-o"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class="fa fa-plus-circle"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserts/images/p3.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Morbi id neque quam liquam
-                                                    sollicitudin</a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">Allen JH</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="item-overlay opacity r r-2x bg-black">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#"><i class="icon-control-play i-2x"></i></a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right">
-                                                            <i class="fa fa-heart-o"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class="fa fa-plus-circle"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="top">
-                            <span class="pull-right m-t-n-xs m-r-sm text-white">
-                              <i class="fa fa-bookmark i-lg"></i>
-                            </span>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserts/images/p4.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Tincidunt libero</a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">Amanda Conlan</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix visible-xs"></div>
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="item-overlay opacity r r-2x bg-black">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#"><i class="icon-control-play i-2x"></i></a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right">
-                                                            <i class="fa fa-heart-o"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class="fa fa-plus-circle"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserts/images/p5.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Fermentum diam</a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">Nisa Colen</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="top">
-                                                    <span class="pull-right m-t-sm m-r-sm badge bg-info">6</span>
-                                                </div>
-                                                <div class="item-overlay opacity r r-2x bg-black">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#"><i class="icon-control-play i-2x"></i></a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right">
-                                                            <i class="fa fa-heart-o"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class="fa fa-plus-circle"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserts/images/p6.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Habitant</a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">Dan Doorack</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix visible-xs"></div>
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="item-overlay opacity r r-2x bg-black">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#"><i class="icon-control-play i-2x"></i></a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right">
-                                                            <i class="fa fa-heart-o"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class="fa fa-plus-circle"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="top">
-                                                    <span class="pull-right m-t-sm m-r-sm badge bg-white">12</span>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserts/images/p7.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Vivamus vel tincidunt libero</a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">Ligula H</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="item-overlay opacity r r-2x bg-black">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#"><i class="icon-control-play i-2x"></i></a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right">
-                                                            <i class="fa fa-heart-o"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class="fa fa-plus-circle"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserst/images/p8.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Aliquam sollicitudin venenati</a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">James East</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix visible-xs"></div>
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="item-overlay opacity r r-2x bg-black">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#"><i class="icon-control-play i-2x"></i></a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right">
-                                                            <i class="fa fa-heart-o"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class="fa fa-plus-circle"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserts/images/p9.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Lementum ligula vitae</a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="item-overlay r r-2x bg-light dker active">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#" data-toggle="class" class="active">
-                                                            <i class="icon-control-play i-2x text"></i>
-                                                            <i class="icon-control-pause i-2x text-active"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right" data-toggle="class">
-                                                            <i class="fa fa-heart-o text"></i>
-                                                            <i class="fa fa-heart text-active text-danger"></i>
-                                                        </a>
-                                                        <a href="#" class="active" data-toggle="class">
-                                                            <i class="fa fa-plus-circle text"></i>
-                                                            <i class="fa fa-check-circle text-active text-info"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserts/images/p10.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Egestas dui nec fermentum </a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">Chris Fox</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix visible-xs"></div>
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="item-overlay opacity r r-2x bg-black">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#"><i class="icon-control-play i-2x"></i></a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right">
-                                                            <i class="fa fa-heart-o"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class="fa fa-plus-circle"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserts/images/p11.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Aliquam sollicitudin venenatis
-                                                    ipsum</a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">Jack Jason</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="item">
-                                            <div class="pos-rlt">
-                                                <div class="item-overlay opacity r r-2x bg-black">
-                                                    <div class="text-info padder m-t-sm text-sm">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o text-muted"></i>
-                                                    </div>
-                                                    <div class="center text-center m-t-n">
-                                                        <a href="#"><i class="icon-control-play i-2x"></i></a>
-                                                    </div>
-                                                    <div class="bottom padder m-b-sm">
-                                                        <a href="#" class="pull-right">
-                                                            <i class="fa fa-heart-o"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class="fa fa-plus-circle"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <a href="#"><img th:src="@{/asserts/images/p12.jpg}" alt=""
-                                                                 class="r r-2x img-full"></a>
-                                            </div>
-                                            <div class="padder-v">
-                                                <a href="#" class="text-ellipsis">Vestibulum ullamcorper</a>
-                                                <a href="#" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <h3 class="font-thin">New Songs</h3>
-                                        <div class="row row-sm">
-                                            <div class="col-xs-6 col-sm-3">
-                                                <div class="item">
-                                                    <div class="pos-rlt">
-                                                        <div class="item-overlay opacity r r-2x bg-black">
-                                                            <div class="center text-center m-t-n">
-                                                                <a href="#"><i class="fa fa-play-circle i-2x"></i></a>
-                                                            </div>
+                                </h3>
+                                <div class="row row-sm"><!--重复6组-->
+                                    <th:block th:each="k:${#numbers.sequence(0,7)}">
+                                        <div class="col-xs-6 col-sm-3">
+                                            <div class="item">
+                                                <div class="pos-rlt">
+                                                    <div class="item-overlay opacity r r-2x bg-black">
+                                                        <div class="center text-center m-t-n">
+                                                            <a href="#"><i class="fa fa-play-circle i-2x"></i></a>
                                                         </div>
-                                                        <a href="#"><img th:src="@{/asserts/images/a2.png}" alt=""
-                                                                         class="r r-2x img-full"></a>
                                                     </div>
-                                                    <div class="padder-v">
-                                                        <a href="#" class="text-ellipsis">Spring rain</a>
-                                                        <a href="#" class="text-ellipsis text-xs text-muted">Miaow</a>
-                                                    </div>
+                                                    <img th:src="${session.MusicList[k+8+33].getMusic_img()}" alt=""
+                                                         class="r r-2x img-full">
                                                 </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-3">
-                                                <div class="item">
-                                                    <div class="pos-rlt">
-                                                        <div class="item-overlay opacity r r-2x bg-black">
-                                                            <div class="center text-center m-t-n">
-                                                                <a href="#"><i class="fa fa-play-circle i-2x"></i></a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="#"><img th:src="@{/asserts/images/a3.png}" alt=""
-                                                                         class="r r-2x img-full"></a>
-                                                    </div>
-                                                    <div class="padder-v">
-                                                        <a href="#" class="text-ellipsis">Hope</a>
-                                                        <a href="#" class="text-ellipsis text-xs text-muted">Miya</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-3">
-                                                <div class="item">
-                                                    <div class="pos-rlt">
-                                                        <div class="item-overlay opacity r r-2x bg-black">
-                                                            <div class="center text-center m-t-n">
-                                                                <a href="#"><i class="fa fa-play-circle i-2x"></i></a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="#"><img th:src="@{/asserts/images/a8.png}" alt=""
-                                                                         class="r r-2x img-full"></a>
-                                                    </div>
-                                                    <div class="padder-v">
-                                                        <a href="#" class="text-ellipsis">Listen wind</a>
-                                                        <a href="#" class="text-ellipsis text-xs text-muted">Soyia
-                                                            Jess</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-3">
-                                                <div class="item">
-                                                    <div class="pos-rlt">
-                                                        <div class="item-overlay opacity r r-2x bg-black">
-                                                            <div class="center text-center m-t-n">
-                                                                <a href="#"><i class="fa fa-play-circle i-2x"></i></a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="#"><img th:src="@{/asserts/images/a9.png}" alt=""
-                                                                         class="r r-2x img-full"></a>
-                                                    </div>
-                                                    <div class="padder-v">
-                                                        <a href="#" class="text-ellipsis">Breaking me</a>
-                                                        <a href="#" class="text-ellipsis text-xs text-muted">Pett JA</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-3">
-                                                <div class="item">
-                                                    <div class="pos-rlt">
-                                                        <div class="item-overlay opacity r r-2x bg-black">
-                                                            <div class="center text-center m-t-n">
-                                                                <a href="#"><i class="fa fa-play-circle i-2x"></i></a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="#"><img th:src="@{/asserts/images/a1.png}" alt=""
-                                                                         class="r r-2x img-full"></a>
-                                                    </div>
-                                                    <div class="padder-v">
-                                                        <a href="#" class="text-ellipsis">Nothing</a>
-                                                        <a href="#" class="text-ellipsis text-xs text-muted">Willion</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-3">
-                                                <div class="item">
-                                                    <div class="pos-rlt">
-                                                        <div class="item-overlay opacity r r-2x bg-black">
-                                                            <div class="center text-center m-t-n">
-                                                                <a href="#"><i class="fa fa-play-circle i-2x"></i></a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="#"><img th:src="@{/asserts/images/a6.png}" alt=""
-                                                                         class="r r-2x img-full"></a>
-                                                    </div>
-                                                    <div class="padder-v">
-                                                        <a href="#" class="text-ellipsis">Panda Style</a>
-                                                        <a href="#" class="text-ellipsis text-xs text-muted">Lionie</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-3">
-                                                <div class="item">
-                                                    <div class="pos-rlt">
-                                                        <div class="item-overlay opacity r r-2x bg-black">
-                                                            <div class="center text-center m-t-n">
-                                                                <a href="#"><i class="fa fa-play-circle i-2x"></i></a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="#"><img th:src="@{/asserts/images/a7.png}" alt=""
-                                                                         class="r r-2x img-full"></a>
-                                                    </div>
-                                                    <div class="padder-v">
-                                                        <a href="#" class="text-ellipsis">Hook Me</a>
-                                                        <a href="#" class="text-ellipsis text-xs text-muted">Gossi</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-3">
-                                                <div class="item">
-                                                    <div class="pos-rlt">
-                                                        <div class="item-overlay opacity r r-2x bg-black">
-                                                            <div class="center text-center m-t-n">
-                                                                <a href="#"><i class="fa fa-play-circle i-2x"></i></a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="#"><img th:src="@{/asserts/images/a5.png}" alt=""
-                                                                         class="r r-2x img-full"></a>
-                                                    </div>
-                                                    <div class="padder-v">
-                                                        <a href="#" class="text-ellipsis">Tempered Song</a>
-                                                        <a href="#" class="text-ellipsis text-xs text-muted">Miaow</a>
-                                                    </div>
+                                                <div class="padder-v">
+                                                    <a name="song" href="#" class="text-ellipsis text-center">[[${session.MusicList[k+8+33].getMusic_name()}]]</a>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!--分类-->
-                                    <div class="col-md-5">
-                                        <h3 class="font-thin">Top Songs</h3>
-                                        <div class="list-group bg-white list-group-lg no-bg auto">
-                                            <a href="#" class="list-group-item clearfix">
-                                                <span class="pull-right h2 text-muted m-l">1</span>
-                                                <span class="pull-left thumb-sm avatar m-r">
-                                                    <img th:src="@{/asserts/images/a4.png}" alt="...">
-                                                </span>
-                                                <span class="clear">
-                                                    <span>Little Town</span>
-                                                    <small class="text-muted clear text-ellipsis">by Chris Fox</small>
-                                                </span>
-                                            </a>
-                                            <a href="#" class="list-group-item clearfix">
-                                                <span class="pull-right h2 text-muted m-l">2</span>
-                                                <span class="pull-left thumb-sm avatar m-r">
-                                                    <img th:src="@{/asserts/images/a5.png}" alt="...">
-                                                </span>
-                                                <span class="clear">
-                                                    <span>Lementum ligula vitae</span>
-                                                    <small class="text-muted clear text-ellipsis">by Amanda Conlan</small>
-                                                </span>
-                                            </a>
-                                            <a href="#" class="list-group-item clearfix">
-                                                <span class="pull-right h2 text-muted m-l">3</span>
-                                                <span class="pull-left thumb-sm avatar m-r">
-                                                    <img th:src="@{/asserts/images/a6.png}" alt="...">
-                                                </span>
-                                                <span class="clear">
-                                                    <span>Aliquam sollicitudin venenatis</span>
-                                                    <small class="text-muted clear text-ellipsis">by Dan Doorack</small>
-                                                </span>
-                                            </a>
-                                            <a href="#" class="list-group-item clearfix">
-                                                <span class="pull-right h2 text-muted m-l">4</span>
-                                                <span class="pull-left thumb-sm avatar m-r">
-                                                    <img th:src="@{/asserts/images/a7.png}" alt="...">
-                                                </span>
-                                                <span class="clear">
-                                                    <span>Aliquam sollicitudin venenatis ipsum</span>
-                                                    <small class="text-muted clear text-ellipsis">by Lauren Taylor</small>
-                                                </span>
-                                            </a>
-                                            <a href="#" class="list-group-item clearfix">
-                                                <span class="pull-right h2 text-muted m-l">5</span>
-                                                <span class="pull-left thumb-sm avatar m-r">
-                                                    <img th:src="@{/asserts/images/a8.png}" alt="...">
-                                                </span>
-                                                <span class="clear">
-                                                    <span>Vestibulum ullamcorper</span>
-                                                    <small class="text-muted clear text-ellipsis">by Dan Doorack</small>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!--/分类-->
+                                    </th:block>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <footer class="footer bg-dark">
-                        <div id="jp_container_N">
-                            <div class="jp-type-playlist">
-                                <div id="jplayer_N" class="jp-jplayer hide"></div>
-                                <div class="jp-gui">
-                                    <div class="jp-video-play hide">
-                                        <a class="jp-video-play-icon">play</a>
-                                    </div>
-                                    <div class="jp-interface">
-                                        <div class="jp-controls">
-                                            <div><a class="jp-previous"><i class="icon-control-rewind i-lg"></i></a>
-                                            </div>
-                                            <div>
-                                                <a class="jp-play"><i class="icon-control-play i-2x"></i></a>
-                                                <a class="jp-pause hid"><i class="icon-control-pause i-2x"></i></a>
-                                            </div>
-                                            <div><a class="jp-next"><i
-                                                    class="icon-control-forward i-lg"></i></a></div>
-                                            <div class="hide"><a class="jp-stop"><i class="fa fa-stop"></i></a>
-                                            </div>
-                                            <div><a class="" data-toggle="dropdown" data-target="#playlist"><i
-                                                    class="icon-list"></i></a></div>
-                                            <div class="jp-progress hidden-xs">
-                                                <div class="jp-seek-bar dk">
-                                                    <div class="jp-play-bar bg-info">
-                                                    </div>
-                                                    <div class="jp-title text-lt">
-                                                        <ul>
-                                                            <li></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="hidden-xs hidden-sm jp-current-time text-xs text-muted"></div>
-                                            <div class="hidden-xs hidden-sm jp-duration text-xs text-muted"></div>
-                                            <div class="hidden-xs hidden-sm">
-                                                <a class="jp-mute" title="mute"><i
-                                                        class="icon-volume-2"></i></a>
-                                                <a class="jp-unmute hid" title="unmute"><i
-                                                        class="icon-volume-off"></i></a>
-                                            </div>
-                                            <div class="hidden-xs hidden-sm jp-volume">
-                                                <div class="jp-volume-bar dk">
-                                                    <div class="jp-volume-bar-value lter"></div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <a class="jp-shuffle" title="shuffle"><i
-                                                        class="icon-shuffle text-muted"></i></a>
-                                                <a class="jp-shuffle-off hid" title="shuffle off"><i
-                                                        class="icon-shuffle text-lt"></i></a>
-                                            </div>
-                                            <div>
-                                                <a class="jp-repeat" title="repeat"><i
-                                                        class="icon-loop text-muted"></i></a>
-                                                <a class="jp-repeat-off hid" title="repeat off"><i
-                                                        class="icon-loop text-lt"></i></a>
-                                            </div>
-                                            <div class="hide">
-                                                <a class="jp-full-screen" title="full screen"><i
-                                                        class="fa fa-expand"></i></a>
-                                                <a class="jp-restore-screen" title="restore screen"><i
-                                                        class="fa fa-compress text-lt"></i></a>
-                                            </div>
+                            <!--/新歌首发-->
+                            <!--分类-->
+                            <div class="col-md-5">
+                                <h3 class="font-thin">播放榜单</h3>
+                                <div class="list-group bg-white list-group-lg no-bg auto">
+                                    <th:block th:each="k:${#numbers.sequence(1,6)}">
+                                        <div class="list-group-item clearfix">
+                                            <span class="pull-right h2 text-muted m-l">[[${k}]]</span>
+                                            <span class="pull-left thumb-sm avatar m-r">
+                                                <img th:src="${session.MusicList[k+6+42].getMusic_img()}" alt="...">
+                                            </span>
+                                            <span class="clear">
+                                                <span><a name="song" href="#">[[${session.MusicList[k+6+42].getMusic_name()}]]</a></span>
+                                                <small class="text-muted clear text-ellipsis">[[${session.MusicList[k+6+42].getMusic_singer()}]]</small>
+                                            </span>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="jp-playlist dropup" id="playlist">
-                                    <ul class="dropdown-menu aside-xl dker">
-                                        <!-- The method Playlist.displayPlaylist() uses this unordered list -->
-                                        <li class="list-group-item"></li>
-                                    </ul>
-                                </div>
-                                <div class="jp-no-solution hide">
-                                    <span>Update Required</span>
-                                    To play the media you will need to either update your browser to a recent
-                                    version or update your <a href="http://get.adobe.com/flashplayer/"
-                                                              target="_blank">Flash plugin</a>.
+                                    </th:block>
                                 </div>
                             </div>
+                            <!--/分类-->
                         </div>
-                    </footer>
-                </section>
-            </section>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--/主体-->
         </section>
-        <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open"
-           data-target="#nav,html"></a>
     </section>
 </section>
-
-<script th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
-<!-- Bootstrap -->
-<script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.js}"></script>
-<!-- App -->
-<script th:src="@{/asserts/js/app.js}"></script>
-<script th:src="@{/asserts/js/slimscroll/jquery.slimscroll.min.js}"></script>
-<script th:src="@{/asserts/js/app.plugin.js}"></script>
-<script type="text/javascript" th:src="@{/asserts/js/jPlayer/jquery.jplayer.min.js}"></script>
-<script type="text/javascript" th:src="@{/asserts/js/jPlayer/add-on/jplayer.playlist.min.js}"></script>
-<script type="text/javascript" th:src="@{/asserts/js/jPlayer/demo.js}"></script>
-<script>
-    $("a").click(function () {
-        // alert($(this).attr('href'));
-        var inurl = $(this).attr('href');
-        switch (inurl) {
-            case "profile.html":
-                location.href = "/music/profile";
-            default:
-                // $(this).attr('href','#');
-                break;
-        }
-    });
-</script>
+<footer th:replace="public :: public_footer_footer"></footer>
 </body>
 </html>

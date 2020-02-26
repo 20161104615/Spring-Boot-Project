@@ -438,12 +438,12 @@ a.list-group-item:focus {
   -webkit-transition: background-color .25s;
   transition: background-color .25s;
   background: #ddd;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(22, 255, 44, 0.23);
   border: none;
 }
 .carousel-indicators .active {
   background: #f0f0f0;
-  background-color: rgba(200,200,200,0.2);
+  background-color: rgba(15, 241, 15, 0.77);
   width: 10px;
   height: 10px;
   margin: 1px;
@@ -719,7 +719,7 @@ body.container {
     width: 360px;
   }
   .aside-xxl {
-    width: 480px;
+    width: 780px;
   }
   .header-md {
     min-height: 60px;
@@ -2181,7 +2181,7 @@ fieldset[disabled] .btn-dark.active {
   background-color: #232c32;
 }
 .bg-black a {
-  color: #9badb9;
+  color: #3fd1b5;
 }
 .bg-black a:hover {
   color: #fff;
@@ -2349,7 +2349,7 @@ fieldset[disabled] .btn-dark.active {
 }
 .bg-success.dk,
 .bg-success .dk {
-  background-color: #15a25a;
+  background-color: #9cf6c9;
 }
 .bg-success.dker,
 .bg-success .dker {
@@ -2357,13 +2357,13 @@ fieldset[disabled] .btn-dark.active {
 }
 .bg-success.bg,
 .bg-success .bg {
-  background-color: #1ab667;
+  background-color: #9cf6c9;
 }
 .bg-success-ltest {
   background-color: #f1ffed;
 }
 .bg-success a {
-  color: #d6f9e7;
+  color: #45b03d;
 }
 .bg-success a:hover {
   color: #fff;
@@ -2403,10 +2403,10 @@ fieldset[disabled] .btn-dark.active {
   color: #fff;
 }
 .bg-success .text-muted {
-  color: #7decb4 !important;
+  color: #0ff10f !important;
 }
 .bg-success .text-lt {
-  color: #ffffff !important;
+  color: #3fd1b5 !important;
 }
 .bg-success .icon-muted {
   color: #7decb4 !important;
@@ -2832,26 +2832,22 @@ a.bg-light:focus {
 }
 .line-head-title {
   *width: 100%;
-  height: 78px;
-  margin: 0px 0px;
-  font-size: 0;
-  overflow: hidden;
+  height: 300px;
+  margin-bottom: 40px;
 }
 .line-head-title1{
-  width: 500px;
-  height: 78px;
-  margin-left: 20rem;
-  font-size: 0;
-  overflow: hidden;
+  width: 450px;
+  height: 400px;
+  margin-left: 10px;
+  margin-top: 10px;
   float: left;
 }
 .line-head-title2{
-  width: 500px;
-  height: 78px;
-  margin-left: 10rem;
-  font-size: 0;
-  overflow: hidden;
-  float: left;
+  width: 450px;
+  height: 246px;
+  margin-left: 10px;
+  margin-top: auto;
+  float: right;
 }
 .line {
   *width: 100%;
@@ -3062,6 +3058,9 @@ a.bg-light:focus {
 }
 .b-success {
   border-color: #1dcc74;
+}
+.b-success-air {
+  border-color: rgba(22,255,44,0.07);
 }
 .b-info {
   border-color: #60bed1;
@@ -3661,6 +3660,7 @@ fieldset[disabled] .i-checks input + i:before {
   left: 80%;
   height: 40%;
 }
+
 .animate .a1 {
   -webkit-animation: movingbar1 1s infinite alternate both;
   -moz-animation: movingbar1 1s infinite alternate both;
