@@ -1,8 +1,0 @@
-com\ys\demo\controller\UserController.class
-com\ys\demo\config\MyMvcConfig$1.class
-com\ys\demo\service\UserServiceImp.class
-com\ys\demo\config\MyMvcConfig.class
-com\ys\demo\service\UserService.class
-com\ys\demo\DemoApplication.class
-com\ys\demo\component\LoginHandlerInterceptor.class
-com\ys\demo\component\MyLocaleResolver.class

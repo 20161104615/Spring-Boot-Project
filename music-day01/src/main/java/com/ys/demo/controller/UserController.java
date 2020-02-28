@@ -4,12 +4,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ys.demo.bean.FavoriteSongs;
 import com.ys.demo.bean.MusicBean;
 import com.ys.demo.bean.UserBean;
-import com.ys.demo.mapper.FavoriteSongsRepository;
 import com.ys.demo.service.MusicService;
 import com.ys.demo.service.UserService;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.util.StringUtils;
@@ -20,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Map;
@@ -41,8 +38,6 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private FavoriteSongsRepository favoriteSongsRepository;
     @Autowired
     private UserService userService;
     @Autowired
@@ -69,13 +64,24 @@ public class UserController {
                     System.out.println("用户存在,且用户名和密码正确");
                     //存放到session中
                     UserBean loginUser = userService.userFind(userBean);
-                    request.getSession().setAttribute("LoginUser", loginUser);
-                    //全部歌曲返回到前端主页面
-                    ArrayList<MusicBean> allMusicBean = musicService.findAllMusicBean();
-                    request.getSession().setAttribute("MusicList", allMusicBean);
-                    map.put("stat", "1");
-                    jsonObject = JSONObject.fromObject(map);
-                    response.getWriter().print(jsonObject);
+                    if (loginUser.isUser_Administrator() == true) {//判断是否为管理员
+                        request.getSession().setAttribute("ALoginUser", loginUser);
+                        ArrayList<UserBean> allUser = userService.allUser(false);
+                        request.getSession().setAttribute("ALLUSER", allUser);
+                        ArrayList<MusicBean> allMusicBean = musicService.findAllMusicBean();
+                        request.getSession().setAttribute("AMusicList", allMusicBean);
+                        map.put("stat", "11");
+                        jsonObject = JSONObject.fromObject(map);
+                        response.getWriter().print(jsonObject);
+                    } else {
+                        request.getSession().setAttribute("LoginUser", loginUser);
+                        //全部歌曲返回到前端主页面
+                        ArrayList<MusicBean> allMusicBean = musicService.findAllMusicBean();
+                        request.getSession().setAttribute("MusicList", allMusicBean);
+                        map.put("stat", "1");
+                        jsonObject = JSONObject.fromObject(map);
+                        response.getWriter().print(jsonObject);
+                    }
                 } else {
                     System.out.println("用户手机号或密码不正确");
                     map.put("stat", "0");
@@ -110,7 +116,7 @@ public class UserController {
         response.setContentType("text/html;charset=utf-8");
         JSONObject jsonObject;
         if (!StringUtils.isEmpty(user_name) && !StringUtils.isEmpty(user_phone) && !StringUtils.isEmpty(user_email) && !StringUtils.isEmpty(user_pwd)) {
-            UserBean userBean = new UserBean(user_name, user_phone, user_email, user_pwd);
+            UserBean userBean = new UserBean(user_name, user_phone, user_email, user_pwd,false);
             boolean register = userService.userRegister(userBean);
             if (register) {
                 request.getSession().setAttribute("LoginUser", userBean);
@@ -183,18 +189,20 @@ public class UserController {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         JSONObject jsonObject;
-        FavoriteSongs favoriteSongs = new FavoriteSongs();
-        /*MusicBean musicBean = musicService.accuratefindmusicinformation(songname);*/
         MusicBean musicBean = musicService.findONEMusic(songname);
         UserBean userBean = userService.userfindstring(userphone);
-        favoriteSongs.setMusic_name(musicBean.getMusic_name());
-        favoriteSongs.setMusic_id(musicBean.getMusic_id());
-        favoriteSongs.setUser_phone(userBean.getUser_phone());
-        favoriteSongsRepository.save(favoriteSongs);
-        map.put("statt", "1");
-        map.put("songname",songname);
-        jsonObject = JSONObject.fromObject(map);
-        response.getWriter().print(jsonObject);
+        FavoriteSongs favoriteSongs = new FavoriteSongs(userBean.getUser_phone(),musicBean.getMusic_id(),musicBean.getMusic_name());
+        boolean b = musicService.uploadFavoritesong(favoriteSongs);
+        if(b){
+            map.put("statt", "1");
+            map.put("songname", songname);
+            jsonObject = JSONObject.fromObject(map);
+            response.getWriter().print(jsonObject);
+        } else {
+            map.put("statt", "0");
+            jsonObject = JSONObject.fromObject(map);
+            response.getWriter().print(jsonObject);
+        }
     }
 
     /*
@@ -214,7 +222,7 @@ public class UserController {
         response.setContentType("text/html;charset=utf-8");
         JSONObject jsonObject;
         boolean result = musicService.delFavoritesong(userphone, songname);
-        if(result) {
+        if (result) {
             map.put("statt", "1");
             map.put("songname", songname);
             jsonObject = JSONObject.fromObject(map);

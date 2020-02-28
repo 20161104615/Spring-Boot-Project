@@ -6,6 +6,8 @@ import com.ys.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -59,5 +61,22 @@ public class UserServiceImpl implements UserService {
     public UserBean userfindstring(String userphone) {
         UserBean finduserbystring = userMapper.finduserbystring(userphone);
         return finduserbystring;
+    }
+
+    @Override
+    public ArrayList<UserBean> allUser(boolean userAdministrator) {
+        ArrayList<UserBean> allUser = userMapper.findAllUser(userAdministrator);
+        return allUser;
+    }
+
+    @Override
+    public boolean USERUPDATE(UserBean userBean) {
+        ArrayList<UserBean> arrayList = userMapper.FINDUSER(userBean);
+        if(arrayList.isEmpty()){
+            boolean aupdateuser = userMapper.AUPDATEUSER(userBean);
+            return aupdateuser;
+        } else {
+            return false;
+        }
     }
 }

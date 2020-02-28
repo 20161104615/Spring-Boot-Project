@@ -57,13 +57,13 @@ spring:
     encoding: UTF-8
     mode: HTML
 
-  jpa:
+  #jpa:
     #显示SQL
-    show-sql: true
+    #show-sql: true
     #自动建表方式
-    hibernate:
-      ddl-auto: update
-      dialect: org.hibernate.dialect.MySQL5Dialect
+    #hibernate:
+      #ddl-auto: update
+      #dialect: org.hibernate.dialect.MySQL5Dialect
 
 
 

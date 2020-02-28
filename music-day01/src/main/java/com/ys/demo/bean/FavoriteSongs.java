@@ -1,26 +1,47 @@
 package com.ys.demo.bean;
 
-import javax.persistence.*;
+import java.util.Objects;
 
-@Entity
-@Table(name = "favoritesongs")
 public class FavoriteSongs {
 
-    //自增ID
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "user_phone")
     private String user_phone;
-
-    @Column(name = "music_id")
     private Integer music_id;
-
-    @Column(name = "music_name",length = 500)
     private String music_name;
 
     public FavoriteSongs() {
+    }
+
+    public FavoriteSongs(String user_phone, Integer music_id, String music_name) {
+        this.user_phone = user_phone;
+        this.music_id = music_id;
+        this.music_name = music_name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FavoriteSongs that = (FavoriteSongs) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(user_phone, that.user_phone) &&
+                Objects.equals(music_id, that.music_id) &&
+                Objects.equals(music_name, that.music_name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user_phone, music_id, music_name);
+    }
+
+    @Override
+    public String toString() {
+        return "FavoriteSongs{" +
+                "id=" + id +
+                ", user_phone='" + user_phone + '\'' +
+                ", music_id=" + music_id +
+                ", music_name='" + music_name + '\'' +
+                '}';
     }
 
     public Integer getId() {

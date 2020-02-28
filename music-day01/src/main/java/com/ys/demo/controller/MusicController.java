@@ -2,7 +2,6 @@ package com.ys.demo.controller;
 
 import com.ys.demo.bean.MusicBean;
 import com.ys.demo.bean.UserBean;
-import com.ys.demo.mapper.FavoriteSongsRepository;
 import com.ys.demo.service.MusicService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -36,9 +35,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/song")
 public class MusicController {
-
-    @Autowired
-    private FavoriteSongsRepository favoriteSongsRepository;
 
     @Autowired
     private MusicService musicService;

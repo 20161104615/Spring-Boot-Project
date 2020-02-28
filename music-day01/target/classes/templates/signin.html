@@ -115,6 +115,9 @@
                     document.getElementById("tip_success").innerText = "";
                     document.getElementById("tip_NoInformation").innerText = "";
                     document.getElementById("tip_nouser").innerText = [[#{tip_nouser}]];
+                }else if(result.stat == 11){
+                    location='datatable.html';
+                    setTimeout("location='datatable.html'", 150);
                 }
             }
         });

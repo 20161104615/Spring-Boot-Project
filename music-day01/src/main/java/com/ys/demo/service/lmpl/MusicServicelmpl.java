@@ -1,5 +1,6 @@
 package com.ys.demo.service.lmpl;
 
+import com.ys.demo.bean.FavoriteSongs;
 import com.ys.demo.bean.MusicBean;
 import com.ys.demo.mapper.MusicMapper;
 import com.ys.demo.service.MusicService;
@@ -130,6 +131,12 @@ public class MusicServicelmpl implements MusicService {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public boolean uploadFavoritesong(FavoriteSongs songs) {
+        boolean b = musicMapper.uploadMusicFavorite(songs);
+        return b;
     }
 
 

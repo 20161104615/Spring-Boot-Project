@@ -24,6 +24,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -55,29 +58,29 @@
     <property name="TODO_SCOPE" value="Project Files" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/asserts/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.ys.demo.service" />
-      <recent name="com.ys.demo.mapper" />
-      <recent name="com.ys.demo.bean" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.ys.demo.controller" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GithubRepository\GraduationProject\music-day01\src\main\resources\templates" />
       <recent name="D:\JavaProgram\SpringMVC\music-day01\src\main\resources\static\asserts\js" />
       <recent name="D:\JavaProgram\SpringMVC\music-day01\src\main\java\com\ys\demo\mapper\annotation" />
       <recent name="D:\JavaProgram\SpringMVC\music-day01\src\main\resources" />
       <recent name="D:\JavaProgram\SpringMVC\music-day01\src\main\java\com\ys\demo" />
-      <recent name="D:\JavaProgram\SpringMVC\music-day01\src\main\resources\templates" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ys.demo.controller" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ys.demo.service" />
+      <recent name="com.ys.demo.mapper" />
+      <recent name="com.ys.demo.bean" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.DemoApplication">
@@ -97,7 +100,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DemoApplicationTests.findmusic" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DemoApplicationTests.UPDATEUSER" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="music-day01" />
       <extension name="coverage">
         <pattern>
@@ -107,13 +110,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.ys.demo" />
       <option name="MAIN_CLASS_NAME" value="com.ys.demo.DemoApplicationTests" />
-      <option name="METHOD_NAME" value="findmusic" />
+      <option name="METHOD_NAME" value="UPDATEUSER" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DemoApplicationTests.getsong (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DemoApplicationTests.getAllUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="music-day01" />
       <extension name="coverage">
         <pattern>
@@ -123,23 +126,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.ys.demo" />
       <option name="MAIN_CLASS_NAME" value="com.ys.demo.DemoApplicationTests" />
-      <option name="METHOD_NAME" value="getsong(javax.servlet.http.HttpServletRequest)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DemoApplicationTests.getsong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="music-day01" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ys.demo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ys.demo" />
-      <option name="MAIN_CLASS_NAME" value="com.ys.demo.DemoApplicationTests" />
-      <option name="METHOD_NAME" value="getsong" />
+      <option name="METHOD_NAME" value="getAllUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,6 +148,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DemoApplicationTests.uploadFavoriteMusic" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="music-day01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ys.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ys.demo" />
+      <option name="MAIN_CLASS_NAME" value="com.ys.demo.DemoApplicationTests" />
+      <option name="METHOD_NAME" value="uploadFavoriteMusic" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="music-day01" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ys.demo.DemoApplication" />
@@ -173,19 +176,19 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.DemoApplicationTests.sysout" />
-      <item itemvalue="JUnit.DemoApplicationTests.findmusic" />
-      <item itemvalue="JUnit.DemoApplicationTests.getsong" />
-      <item itemvalue="JUnit.DemoApplicationTests.getsong (1)" />
       <item itemvalue="JUnit.DemoApplicationTests.JSONArray" />
+      <item itemvalue="JUnit.DemoApplicationTests.getAllUser" />
+      <item itemvalue="JUnit.DemoApplicationTests.uploadFavoriteMusic" />
       <item itemvalue="Spring Boot.DemoApplication" />
+      <item itemvalue="JUnit.DemoApplicationTests.UPDATEUSER" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DemoApplicationTests.UPDATEUSER" />
+        <item itemvalue="JUnit.DemoApplicationTests.getAllUser" />
+        <item itemvalue="JUnit.DemoApplicationTests.uploadFavoriteMusic" />
         <item itemvalue="JUnit.DemoApplicationTests.JSONArray" />
         <item itemvalue="JUnit.DemoApplicationTests.sysout" />
-        <item itemvalue="JUnit.DemoApplicationTests.getsong" />
-        <item itemvalue="JUnit.DemoApplicationTests.getsong (1)" />
-        <item itemvalue="JUnit.DemoApplicationTests.findmusic" />
       </list>
     </recent_temporary>
   </component>
@@ -238,11 +241,22 @@
       <workItem from="1582549218429" duration="3534000" />
       <workItem from="1582633997345" duration="9170000" />
       <workItem from="1582676493393" duration="7730000" />
+      <workItem from="1582712520745" duration="719000" />
+      <workItem from="1582713306587" duration="304000" />
+      <workItem from="1582713676907" duration="3721000" />
+      <workItem from="1582730044382" duration="4194000" />
+      <workItem from="1582804899785" duration="9663000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LIMIT_HISTORY" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
     <state x="605" y="108" key="#Assign_Data_Sources" timestamp="1582425514444">
@@ -261,18 +275,18 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="70" y="55" width="1155" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1581989825627" />
-    <state x="555" y="106" key="#com.intellij.ide.util.MemberChooser" timestamp="1582684197387">
+    <state x="119" y="150" key="#com.intellij.ide.util.MemberChooser" timestamp="1582808169653">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="555" y="106" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1582684197387" />
+    <state x="119" y="150" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1582808169653" />
     <state x="553" y="299" width="429" height="271" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582432747377">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="553" y="299" width="429" height="271" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1582432747377" />
-    <state x="499" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582342770108">
+    <state x="499" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582713716184">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="499" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1582342770108" />
+    <state x="499" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1582713716184" />
     <state x="499" y="182" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1582427444271">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -281,38 +295,38 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="190" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1582342927125" />
-    <state width="1493" height="382" key="GridCell.Tab.0.bottom" timestamp="1582684668464">
+    <state width="1493" height="525" key="GridCell.Tab.0.bottom" timestamp="1582814672634">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="382" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1582684668464" />
-    <state width="1493" height="382" key="GridCell.Tab.0.center" timestamp="1582684668464">
+    <state width="1493" height="525" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1582814672634" />
+    <state width="1493" height="525" key="GridCell.Tab.0.center" timestamp="1582814672634">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="382" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1582684668464" />
-    <state width="1493" height="382" key="GridCell.Tab.0.left" timestamp="1582684668464">
+    <state width="1493" height="525" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1582814672634" />
+    <state width="1493" height="525" key="GridCell.Tab.0.left" timestamp="1582814672634">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="382" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1582684668464" />
-    <state width="1493" height="382" key="GridCell.Tab.0.right" timestamp="1582684668464">
+    <state width="1493" height="525" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1582814672634" />
+    <state width="1493" height="525" key="GridCell.Tab.0.right" timestamp="1582814672634">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="382" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1582684668464" />
-    <state width="1493" height="382" key="GridCell.Tab.1.bottom" timestamp="1582684668464">
+    <state width="1493" height="525" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1582814672634" />
+    <state width="1493" height="499" key="GridCell.Tab.1.bottom" timestamp="1582814672619">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="382" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1582684668464" />
-    <state width="1493" height="382" key="GridCell.Tab.1.center" timestamp="1582684668464">
+    <state width="1493" height="499" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1582814672619" />
+    <state width="1493" height="499" key="GridCell.Tab.1.center" timestamp="1582814672619">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="382" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1582684668464" />
-    <state width="1493" height="382" key="GridCell.Tab.1.left" timestamp="1582684668464">
+    <state width="1493" height="499" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1582814672619" />
+    <state width="1493" height="499" key="GridCell.Tab.1.left" timestamp="1582814672619">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="382" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1582684668464" />
-    <state width="1493" height="382" key="GridCell.Tab.1.right" timestamp="1582684668464">
+    <state width="1493" height="499" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1582814672619" />
+    <state width="1493" height="499" key="GridCell.Tab.1.right" timestamp="1582814672619">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="382" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1582684668464" />
+    <state width="1493" height="499" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1582814672619" />
     <state width="1493" height="346" key="GridCell.Tab.2.bottom" timestamp="1582387426670">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -337,14 +351,14 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="358" y="124" width="837" height="668" key="Registry/0.0.1536.864@0.0.1536.864" timestamp="1581936636941" />
-    <state x="263" y="20" key="SettingsEditor" timestamp="1582646563031">
+    <state x="263" y="20" key="SettingsEditor" timestamp="1582713232397">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="263" y="20" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1582646563031" />
-    <state x="461" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1582676506835">
+    <state x="263" y="20" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1582713232397" />
+    <state x="461" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1582804903559">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="461" y="260" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1582676506835" />
+    <state x="461" y="260" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1582804903559" />
     <state x="512" y="82" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1582681975358">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

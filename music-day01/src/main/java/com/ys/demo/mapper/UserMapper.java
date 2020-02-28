@@ -3,6 +3,8 @@ package com.ys.demo.mapper;
 import com.ys.demo.bean.UserBean;
 import org.apache.ibatis.annotations.*;
 
+import java.util.ArrayList;
+
 @Mapper//指定这是一个操作数据库的mapper
 public interface UserMapper {
     /**
@@ -23,6 +25,14 @@ public interface UserMapper {
     @Select("select * from user where user_phone=#{userphone}")
     public UserBean finduserbystring(String userphone);
 
+    @Select("select * from user where user_Administrator=#{userAdministrator}")
+    public ArrayList<UserBean> findAllUser(boolean userAdministrator);
+
+    @Select("SELECT * FROM user WHERE user_id <> #{user_id} " +
+            "AND (user_phone = #{user_phone} OR user_email = #{user_email}) " +
+            "AND user_Administrator = FALSE")
+    public ArrayList<UserBean> FINDUSER(UserBean userBean);
+
     /**
      * 增加用户信心
      *      1、用户注册
@@ -35,10 +45,16 @@ public interface UserMapper {
     /**
      * 修改用户信息
      *      1、用户修改，手机号和邮箱不允许修改
+     *      2、管理员修改用户信息
      */
     @Update("update user set user_name=#{user_name},user_pwd=#{user_pwd}," +
             "user_birthday=#{user_birthday},user_introduced=#{user_introduced} where (user_phone=#{user_phone} or user_email=#{user_email})")
     public int updateuser(UserBean userBean);
+
+    @Update("update user set user_name=#{user_name},user_pwd=#{user_pwd}," +
+            "user_phone=#{user_phone},user_email=#{user_email},user_introduced=#{user_introduced} " +
+            "where user_id=#{user_id} ")
+    public boolean AUPDATEUSER(UserBean userBean);
 
     /**
      * 注销用户

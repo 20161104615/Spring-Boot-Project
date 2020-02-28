@@ -1,7 +1,10 @@
 package com.ys.demo;
 
+import com.ys.demo.bean.FavoriteSongs;
 import com.ys.demo.bean.MusicBean;
+import com.ys.demo.bean.UserBean;
 import com.ys.demo.mapper.MusicMapper;
+import com.ys.demo.mapper.UserMapper;
 import com.ys.demo.service.MusicService;
 import com.ys.demo.service.UserService;
 
@@ -36,6 +39,8 @@ class DemoApplicationTests {
     MusicService musicService;
     @Autowired
     MusicMapper musicMapper;
+    @Autowired
+    UserMapper userMapper;
 
 
     @Test
@@ -122,105 +127,35 @@ class DemoApplicationTests {
         return "/index";
     }
 
+    @Test
+    void getAllUser() {
+        ArrayList<UserBean> allUser = userMapper.findAllUser(false);
+        System.out.println(allUser);
 
+        ArrayList<UserBean> userBeans = userService.allUser(false);
+        System.out.println(userBeans);
+    }
 
-    /*void find(){
-        callback({
-                "code":0,
-                "data":{
-                    "keyword":"2",
-                    "priority":0,
-                    "qc":[],
-                    "semantic":{
-                        "curnum":0,
-                        "curpage":1,
-                        "list":[],
-                        "totalnum":0
-                    },
-                    "song":{
-                        "curnum":1,
-                        "curpage":1,
-                        "list":[{
-                            "albumid":2104407,
-                            "albummid":"0008u6bN048czH",
-                            "albumname":"2U",
-                            "albumname_hilight":"<em>2</em>U",
-                            "alertid":24,
-                            "belongCD":0,
-                            "cdIdx":1,
-                            "chinesesinger":0,
-                            "docid":"3341932035108162397",
-                            "grp":[],
-                            "interval":194,
-                            "isonly":1,
-                            "lyric":"",
-                            "lyric_hilight":"",
-                            "media_mid":"0021fS0W0g49CW",
-                            "msgid":15,
-                            "newStatus":2,
-                            "nt":3708412778,
-                            "pay":{
-                                "payalbum":0,
-                                "payalbumprice":0,
-                                "paydownload":1,
-                                "payinfo":1,
-                                "payplay":1,
-                                "paytrackmouth":1,
-                                "paytrackprice":200
-                            },
-                            "preview":{
-                                    "trybegin":0,
-                                    "tryend":0,
-                                    "trysize":960887
-                            },
-                            "pubtime":1496937600,
-                            "pure":5,
-                            "singer":[
-                                    {
-                                        "id":965,
-                                        "mid":"000gELB619OfVG",
-                                        "name":"David Guetta",
-                                        "name_hilight":"David Guetta"
-                                    },
-                                    {
-                                        "id":16257,
-                                        "mid":"002DYpxl3hW3EP",
-                                        "name":"Justin Bieber",
-                                        "name_hilight":"Justin Bieber"
-                                    }
-                            ],
-                            "size128":3119019,
-                            "size320":7797236,
-                            "sizeape":0,
-                            "sizeflac":23259094,
-                            "sizeogg":4373071,
-                            "songid":202712996,
-                            "songmid":"000Hyuia2AvvP1",
-                            "songname":"2U",
-                            "songname_hilight":"<em>2</em>U",
-                            "strMediaMid":"0021fS0W0g49CW",
-                            "stream":1,
-                            "switch":628481,
-                            "t":1,
-                            "tag":10,
-                            "type":0,
-                            "ver":0,
-                            "vid":"m0024ohyrew"
-                        }],
-                        "totalnum":600
-                    },
-                    "tab":0,
-                    "taglist":[],
-                    "totaltime":0,
-                    "zhida":{
-                        "chinesesinger":0,
-                        "type":0
-                    }
-                },
-                "message":"",
-                "notice":"",
-                "subcode":0,
-                "time":1582040139,
-                "tips":""
-        })*/
+    @Test
+    void uploadFavoriteMusic() {
+        FavoriteSongs favoriteSongs = new FavoriteSongs("123", 16, "wahhha");
+        boolean b = musicMapper.uploadMusicFavorite(favoriteSongs);
+        System.out.println(b);
+    }
+
+    @Test
+    void UPDATEUSER(){
+        UserBean userBean = new UserBean(7,"TEST", "12345", "12345",
+                "12345@qq.com", "TEST");
+        ArrayList<UserBean> arrayList = userMapper.FINDUSER(userBean);
+        if(arrayList.isEmpty()){
+            System.out.println("可以修改");
+        } else {
+            System.out.println("不可修改");
+        }
+
+        /*boolean b = userService.USERUPDATE(userBean);
+        System.out.println(b);*/
+    }
+
 }

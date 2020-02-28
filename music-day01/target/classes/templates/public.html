@@ -22,6 +22,47 @@
 </head>
 <body>
 
+<!--管理员_头部-->
+<header class="bg-white-only header header-md center" th:fragment="public_A_head">
+    <div class="aside-xxl" style="margin-left: 20rem;">
+        <div class="navbar-header center aside-xl" style="margin-left: 6rem;">
+            <div class="btn-group btn-group-justified bg-white-only">
+                <a href="#" class="btn bg-white-only" style="width: 14rem;height: 6rem">
+                    <i class="icon-earphones btn-lg"></i>
+                </a>
+                <a th:href="@{/index.html}" class="btn bg-white-only"
+                   style="width: 14rem;height: 6rem;background-color: #1acf74;color: white">
+                    音乐馆
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="aside-xxl" style="margin-left: 70rem;">
+        <ul class="nav navbar-nav m-n hidden-xs nav-user user" style="margin-left: 20rem">
+            <li class="dropdown">
+                <div class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs">
+                    <div class="form-group">
+                        <div class="input-group">
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown" style="margin-left: 16px;margin-top: 0.1rem">
+                <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
+                              <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                                <img th:src="@{/asserts/images/a0.png}" alt="...">
+                              </span>
+                    [[${session.ALoginUser.getUser_name()}]] <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu animated fadeInRight">
+                    <li>
+                        <a href="modal.lockme.html" data-toggle="ajaxModal">退出登录</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
 <!--公共_头部-->
 <header class="bg-white-only header header-md center" th:fragment="public_head">
     <div class="aside-xxl" style="margin-left: 20rem;">

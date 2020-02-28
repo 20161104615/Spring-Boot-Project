@@ -12,6 +12,15 @@ public class UserBean {
     private Date user_birthday;//生日
     private String user_email;//邮箱
     private String user_introduced;//个人介绍
+    private boolean user_Administrator;
+
+    public boolean isUser_Administrator() {
+        return user_Administrator;
+    }
+
+    public void setUser_Administrator(boolean user_Administrator) {
+        this.user_Administrator = user_Administrator;
+    }
 
     public Integer getUser_id() {
         return user_id;
@@ -80,9 +89,10 @@ public class UserBean {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserBean)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         UserBean userBean = (UserBean) o;
-        return Objects.equals(user_id, userBean.user_id) &&
+        return user_Administrator == userBean.user_Administrator &&
+                Objects.equals(user_id, userBean.user_id) &&
                 Objects.equals(user_name, userBean.user_name) &&
                 Objects.equals(user_phone, userBean.user_phone) &&
                 Objects.equals(user_pwd, userBean.user_pwd) &&
@@ -94,7 +104,7 @@ public class UserBean {
 
     @Override
     public int hashCode() {
-        return Objects.hash(user_id, user_name, user_phone, user_pwd, user_avatar, user_birthday, user_email, user_introduced);
+        return Objects.hash(user_id, user_name, user_phone, user_pwd, user_avatar, user_birthday, user_email, user_introduced, user_Administrator);
     }
 
     @Override
@@ -108,6 +118,7 @@ public class UserBean {
                 ", user_birthday=" + user_birthday +
                 ", user_email='" + user_email + '\'' +
                 ", user_introduced='" + user_introduced + '\'' +
+                ", user_Administrator=" + user_Administrator +
                 '}';
     }
 
@@ -124,6 +135,23 @@ public class UserBean {
         this.user_phone = user_phone;
         this.user_email = user_email;
         this.user_pwd = user_pwd;
+    }
+
+    public UserBean(String user_name, String user_phone, String user_pwd, String user_email, boolean user_Administrator) {
+        this.user_name = user_name;
+        this.user_phone = user_phone;
+        this.user_pwd = user_pwd;
+        this.user_email = user_email;
+        this.user_Administrator = user_Administrator;
+    }
+
+    public UserBean(Integer user_id, String user_name, String user_phone, String user_pwd, String user_email, String user_introduced) {
+        this.user_id = user_id;
+        this.user_name = user_name;
+        this.user_phone = user_phone;
+        this.user_pwd = user_pwd;
+        this.user_email = user_email;
+        this.user_introduced = user_introduced;
     }
 
     public UserBean(String user_name, String user_phone, String user_pwd, Date user_birthday, String user_email, String user_introduced) {

@@ -8,9 +8,19 @@
     height: 70%;
     background-color: #1ab667;
 }
-.find_select_letters{
-
+.greencolor1{
+    background-color: rgba(37, 255, 132, 0.15);
 }
+.imgsetwh{
+    width: 50px!important;
+    height: 50px!important;
+}
+.modal-ys{
+    margin: auto auto auto auto;
+    padding-left: 20px;
+}
+
+
 /*dt{*/
 /*    padding-left: 30rem;*/
 /*    margin-left: 10rem;*/

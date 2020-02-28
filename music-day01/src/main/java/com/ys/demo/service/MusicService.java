@@ -1,5 +1,6 @@
 package com.ys.demo.service;
 
+import com.ys.demo.bean.FavoriteSongs;
 import com.ys.demo.bean.MusicBean;
 import net.sf.json.JSONArray;
 import org.json.JSONException;
@@ -18,4 +19,5 @@ public interface MusicService {
     public ArrayList<MusicBean> findMusicOfPlayListinformation(String userphone);
     public MusicBean findONEMusic(String musicName);
     public boolean delFavoritesong(String userPhone,String musicName);
+    public boolean uploadFavoritesong(FavoriteSongs songs);
 }

@@ -36,6 +36,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 registry.addViewController("/listen2.html").setViewName("listen2");
                 registry.addViewController("/list.html").setViewName("list");
                 registry.addViewController("/fileupload.html").setViewName("fileupload");
+                registry.addViewController("/datatable.html").setViewName("datatable");
             }
 
             //拦截器注册
@@ -57,6 +58,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                                 "/listen2.html",
                                 "/list.html",
                                 "/fileupload.html",
+                                "/datatable.html",
                                 "/OLDlisten.html");
             }
         };

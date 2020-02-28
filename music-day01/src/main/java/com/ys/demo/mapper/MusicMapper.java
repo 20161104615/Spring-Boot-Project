@@ -1,5 +1,6 @@
 package com.ys.demo.mapper;
 
+import com.ys.demo.bean.FavoriteSongs;
 import com.ys.demo.bean.MusicBean;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -37,11 +38,17 @@ public interface MusicMapper {
     /**
      * 添加歌曲
      * 1、添加歌曲名、歌手、歌曲路径、歌曲图片路径
+     * 2、添加收藏
      */
     @Insert("insert into music (music_name,music_singer,music_img,music_storagepath) " +
             "values " +
             "(#{music_name},#{music_singer},#{music_img},#{music_storagepath})")
     public int uploadMusic(MusicBean musicBean);
+
+    @Insert("insert into favoritesongs (music_id,music_name,user_phone) " +
+            "values" +
+            "(#{music_id},#{music_name},#{user_phone})")
+    public boolean uploadMusicFavorite(FavoriteSongs songs);
 
     /**
      * 删除歌曲

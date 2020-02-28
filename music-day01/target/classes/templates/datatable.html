@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" class="app" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public :: public_head_head"></head>
+<body class="">
+<section class="vbox">
+    <div th:replace="~{public :: public_A_head}"></div>
+
+    <section id="content">
+        <section class="vbox">
+            <section class="scrollable padder">
+                <div class="m-b-md">
+                    <h3 class="m-b-none">欢迎登陆</h3>
+                    <!--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        开始演示模态框
+                    </button>-->
+                    <!-- 模态框（Modal） -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        更改
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-3 control-label text-right  m-t-xs">手机号：</label>
+                                        <div class="col-sm-9">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input id="userphone" type="text" class="form-control"
+                                                           placeholder="修改手机号">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-3 control-label text-right m-t-xs">邮箱：</label>
+                                        <div class="col-sm-9">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input id="useremail" type="text" class="form-control"
+                                                           placeholder="修改邮箱">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-3 control-label text-right m-t-xs">密码：</label>
+                                        <div class="col-sm-9">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input id="userpwd" type="text" class="form-control"
+                                                           placeholder="修改密码">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-3 control-label text-right m-t-xs">昵称：</label>
+                                        <div class="col-sm-9">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input id="username" type="text" class="form-control"
+                                                           placeholder="修改昵称">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-3 control-label text-right m-t-xs">介绍：</label>
+                                        <div class="col-sm-9">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input id="userintroduced" type="text" class="form-control"
+                                                           placeholder="修改介绍">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        关闭
+                                    </button>
+                                    <button id="newsubmit" type="button" class="btn btn-primary">
+                                        提交更改
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+                </div>
+                <section class="panel panel-default">
+                    <section class="panel panel-default">
+                        <header class="panel-heading bg-light">
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active"><a href="#home" data-toggle="tab">用户</a></li>
+                                <li><a href="#profile" data-toggle="tab">音乐</a></li>
+                            </ul>
+                        </header>
+                        <div class="panel-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="home">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped m-b-none" data-ride="datatables">
+                                            <thead>
+
+                                            <tr>
+                                                <th style="width:10%">用户ID</th>
+                                                <th style="width:15%">用户手机号</th>
+                                                <th style="width:15%">用户邮箱</th>
+                                                <th style="width:15%">用户密码</th>
+                                                <th style="width:15%">用户昵称</th>
+                                                <th style="width:20%">用户介绍</th>
+                                                <th style="width:10%" class="text-center">操作</th>
+                                            </tr>
+                                            <th:block th:each="user,num:${session.ALLUSER}">
+                                                <tr role="row" class="odd"
+                                                    th:class="${num.count % 2 == 1}?'odd greencolor1':'odd'">
+                                                    <td class="sorting_1">[[${user.getUser_id()}]]</td>
+                                                    <td>[[${user.getUser_phone()}]]</td>
+                                                    <td>[[${user.getUser_email()}]]</td>
+                                                    <td>[[${user.getUser_pwd()}]]</td>
+                                                    <td>[[${user.getUser_name()}]]</td>
+                                                    <td>[[${user.getUser_introduced()}]]</td>
+                                                    <td class="text-center">
+                                                        <a data-toggle="modal" data-target="#myModal" class="no-border">
+                                                            <i class="icon-note no-border"
+                                                               th:value="${user.getUser_id()}"></i></a>
+                                                        <a class="no-border">
+                                                            <i class="icon-trash no-border m-l-lg" th:value="${user.getUser_id()}"></i>
+                                                        </a>
+                                                    </td>
+
+                                                </tr>
+                                            </th:block>
+
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="profile">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped m-b-none" data-ride="datatables">
+                                            <thead>
+                                            <tr>
+                                                <th style="width:10%">歌曲ID</th>
+                                                <th style="width:15%">歌曲名称</th>
+                                                <th style="width:15%">歌手</th>
+                                                <th style="width:25%">歌曲路径</th>
+                                                <th style="width:15%" class="text-center">歌曲图片</th>
+                                                <th style="width:20%" class="text-center">操作</th>
+                                            </tr>
+                                            <th:block th:each="music,num:${session.AMusicList}">
+                                                <tr role="row" class="odd"
+                                                    th:class="${num.count % 2 == 1}?'odd greencolor1':'odd'">
+                                                    <td class="sorting_1" style="padding-top: 20px">
+                                                        [[${music.getMusic_id()}]]
+                                                    </td>
+                                                    <td style="padding-top: 20px">[[${music.getMusic_name()}]]</td>
+                                                    <td style="padding-top: 20px">[[${music.getMusic_singer()}]]</td>
+                                                    <td style="padding-top: 20px">[[${music.getMusic_storagepath()}]]
+                                                    </td>
+                                                    <td class="text-center"><img class="img-circle imgsetwh"
+                                                                                 th:src="${music.getMusic_img()}"></td>
+                                                    <td class="text-center" style="padding-top: 20px">
+                                                        <a class="no-border"><i class="icon-note no-border"></i></a>
+                                                        <a class="no-border"><i class="icon-trash no-border m-l-lg"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </th:block>
+
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </section>
+            </section>
+        </section>
+        <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open"
+           data-target="#nav,html"></a>
+    </section>
+</section>
+<footer th:replace="public :: public_footer_footer"></footer>
+<script th:inline="javascript">
+    $(document).ready(function () {
+        $(".icon-note").click(function () {
+            var user = $(this);
+
+            $("#newsubmit").click(function () {
+                var userphone = $("#userphone").val();
+                var useremail = $("#useremail").val();
+                var userpwd = $("#userpwd").val();
+                var username = $("#username").val();
+                var userintroduced = $("#userintroduced").val();
+                $.ajax({
+                    url: "admin/updatauser",
+                    type: "post",
+                    dataType: 'json',
+                    data: {
+                        "userid": user.attr("value"),
+                        "userphone": userphone,
+                        "useremail": useremail,
+                        "userpwd": userpwd,
+                        "username": username,
+                        "userintroduced": userintroduced,
+                    },
+                    success: function (result) {
+                        if (result.stat == 1) {
+                            alert("修改成功");
+                            window.location.reload();
+                        } else if (result.stat == 0) {
+                            alert("修改失败");
+                        }
+                    },
+                    error: function () {
+                        alert("ERROR");
+                    }
+                });
+            });
+        });
+    });
+</script>
+<!--  <script src="js/jquery.min.js"></script>
+  &lt;!&ndash; Bootstrap &ndash;&gt;
+  <script src="js/bootstrap.js"></script>
+  &lt;!&ndash; App &ndash;&gt;
+  <script src="js/app.js"></script>  
+  <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
+  &lt;!&ndash; datatables &ndash;&gt;
+<script src="js/datatables/jquery.dataTables.min.js"></script>
+<script src="js/datatables/jquery.csv-0.71.min.js"></script>
+<script src="js/datatables/demo.js"></script>
+  <script src="js/app.plugin.js"></script>
+  <script type="text/javascript" src="js/jPlayer/jquery.jplayer.min.js"></script>
+  <script type="text/javascript" src="js/jPlayer/add-on/jplayer.playlist.min.js"></script>
+  <script type="text/javascript" src="js/jPlayer/demo.js"></script>-->
+</body>
+</html>
