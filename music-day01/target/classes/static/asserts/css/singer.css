@@ -1,25 +1,53 @@
-.find_select{
+.find_select {
     width: 100%;
     height: 100px;
     background-color: #00b3ee;
 }
-.find_select_layer1{
+
+.find_select_layer1 {
     width: 60%;
     height: 70%;
     background-color: #1ab667;
 }
-.greencolor1{
+
+.greencolor1 {
     background-color: rgba(37, 255, 132, 0.15);
 }
-.imgsetwh{
-    width: 50px!important;
-    height: 50px!important;
+
+.imgsetwh {
+    width: 50px !important;
+    height: 50px !important;
 }
-.modal-ys{
+
+.modal-ys {
     margin: auto auto auto auto;
     padding-left: 20px;
 }
 
+.Afind-ys {
+    width: 300px;
+    height: 28px;
+    margin-left: 1140px;
+    margin-bottom: 5px;
+}
+
+.Afind-left-ys {
+    width: 80%;
+    height: 100%;
+    float: left;
+    padding-left: 40px;
+}
+
+.Afind-right-ys {
+    width: 20%;
+    height: 100%;
+    float: right;
+    padding-top: 4px;
+}
+.A-findmusic{}
+.A-insertmusic{}
+.A-updatemusic{}
+.A-deletemusic{}
 
 /*dt{*/
 /*    padding-left: 30rem;*/

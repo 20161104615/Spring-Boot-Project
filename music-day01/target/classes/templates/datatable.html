@@ -9,7 +9,7 @@
         <section class="vbox">
             <section class="scrollable padder">
                 <div class="m-b-md">
-                    <h3 class="m-b-none">欢迎登陆</h3>
+                    <h3 class="m-b-none">欢迎[[${session.ALoginUser.getUser_name()}]]管理员登陆</h3>
                     <!--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                         开始演示模态框
                     </button>-->
@@ -94,13 +94,311 @@
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal -->
                     </div>
+                    <div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabe2">
+                                        删除
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-12 control-label text-left  m-t-xs">确认要删除此用户吗？</label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        关闭
+                                    </button>
+                                    <button id="newsubmit2" type="button" class="btn btn-primary">
+                                        确定
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+                    <div class="modal fade" id="myModa3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabe3">
+                                        添加
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-3 control-label text-right m-t-xs">用户名：</label>
+                                        <div class="col-sm-9">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input id="insertusername" type="text" class="form-control"
+                                                           placeholder="请输入用户名">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-3 control-label text-right m-t-xs">手机号：</label>
+                                        <div class="col-sm-9">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input id="insertuserphone" type="text" class="form-control"
+                                                           placeholder="请输入手机号">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-3 control-label text-right m-t-xs">邮箱：</label>
+                                        <div class="col-sm-9">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input id="insertuseremail" type="text" class="form-control"
+                                                           placeholder="请输入邮箱">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-3 control-label text-right m-t-xs">密码：</label>
+                                        <div class="col-sm-9">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input id="insertuserpwd" type="text" class="form-control"
+                                                           placeholder="请输入密码">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-3 control-label text-right m-t-xs">是否为管理员：</label>
+                                        <div class="radio m-l-md" style="margin-top: 4px;margin-left: 150px">
+                                            <label>
+                                                <input type="radio" name="ha" id="optionsRadios1"
+                                                       value="1" checked=""><span>是</span>
+                                            </label>
+                                            <label style="margin-left: 10px">
+                                                <input type="radio" name="ha"
+                                                       id="optionsRadios2" value="2"><span>否</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        关闭
+                                    </button>
+                                    <button id="newsubmit3" type="button" class="btn btn-primary">
+                                        确定
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+                    <div class="modal fade" id="myModa4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabe4">
+                                        更改
+                                    </h4>
+                                </div>
+                                <form id="uploadForm" enctype="multipart/form-data"
+                                      method="post"
+                                      th:action="@{files/updatemusic}">
+                                    <div class="modal-body">
+                                        <div class="panel-body modal-ys ">
+                                            <label class="col-sm-3 control-label text-right  m-t-xs">歌曲名称：</label>
+                                            <div class="col-sm-9">
+                                                <div class="row">
+                                                    <div class="col-md-11">
+                                                        <input id="newMusicName" name="newMusicName" type="text"
+                                                               class="form-control"
+                                                               placeholder="修改歌曲名称">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body modal-ys ">
+                                            <label class="col-sm-3 control-label text-right  m-t-xs">歌手：</label>
+                                            <div class="col-sm-9">
+                                                <div class="row">
+                                                    <div class="col-md-11">
+                                                        <input id="newMusicSinger" name="newMusicSinger" type="text"
+                                                               class="form-control"
+                                                               placeholder="修改歌手">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body modal-ys ">
+                                            <label class="col-sm-3 control-label text-right  m-t-xs">歌曲上传：</label>
+                                            <div class="col-sm-9">
+                                                <div class="row">
+                                                    <div class="col-md-11">
+                                                        <input id="newMusicUrl" name="newMusicUrl" type="file"
+                                                               data-icon="false"
+                                                               data-classButton="btn btn-default"
+                                                               data-classInput="form-control inline v-middle input-s">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body modal-ys ">
+                                            <label class="col-sm-3 control-label text-right  m-t-xs">图片上传：</label>
+                                            <div class="col-sm-9">
+                                                <div class="row">
+                                                    <div class="col-md-11">
+                                                        <input id="newMusicImgUrl" name="newMusicImgUrl" type="file"
+                                                               data-icon="false"
+                                                               data-classButton="btn btn-default"
+                                                               data-classInput="form-control inline v-middle input-s">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input class="hide" id="MusicID" name="MusicID">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                                            关闭
+                                        </button>
+                                        <button id="newsubmit4" type="submit" class="btn btn-primary">
+                                            提交更改
+                                        </button>
+                                    </div>
+                                </form>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+                    <div class="modal fade" id="myModa5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabe5">
+                                        删除
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="panel-body modal-ys ">
+                                        <label class="col-sm-12 control-label text-left  m-t-xs">确认删除这首歌曲？</label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        关闭
+                                    </button>
+                                    <button id="newsubmit5" type="button" class="btn btn-primary">
+                                        确定
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+                    <div class="modal fade" id="myModa6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabe6">
+                                        上传
+                                    </h4>
+                                </div>
+                                <form id="uploadForm1" enctype="multipart/form-data"
+                                      method="post"
+                                      th:action="@{files/newmusic}">
+                                    <div class="modal-body">
+                                        <div class="panel-body modal-ys ">
+                                            <label class="col-sm-3 control-label text-right  m-t-xs">歌曲名称：</label>
+                                            <div class="col-sm-9">
+                                                <div class="row">
+                                                    <div class="col-md-11">
+                                                        <input id="newMusicName1" name="newMusicName1" type="text"
+                                                               class="form-control"
+                                                               placeholder="歌曲名称">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body modal-ys ">
+                                            <label class="col-sm-3 control-label text-right  m-t-xs">歌手：</label>
+                                            <div class="col-sm-9">
+                                                <div class="row">
+                                                    <div class="col-md-11">
+                                                        <input id="newMusicSinger1" name="newMusicSinger1" type="text"
+                                                               class="form-control"
+                                                               placeholder="歌手">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body modal-ys ">
+                                            <label class="col-sm-3 control-label text-right  m-t-xs">歌曲上传：</label>
+                                            <div class="col-sm-9">
+                                                <div class="row">
+                                                    <div class="col-md-11">
+                                                        <input id="newMusicUrl1" name="newMusicUrl1" type="file"
+                                                               data-icon="false"
+                                                               data-classButton="btn btn-default"
+                                                               data-classInput="form-control inline v-middle input-s">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body modal-ys ">
+                                            <label class="col-sm-3 control-label text-right  m-t-xs">图片上传：</label>
+                                            <div class="col-sm-9">
+                                                <div class="row">
+                                                    <div class="col-md-11">
+                                                        <input id="newMusicImgUrl1" name="newMusicImgUrl1" type="file"
+                                                               data-icon="false"
+                                                               data-classButton="btn btn-default"
+                                                               data-classInput="form-control inline v-middle input-s">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input class="hide" id="MusicID1" name="MusicID1">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                                            关闭
+                                        </button>
+                                        <button id="newsubmit6" type="button" class="btn btn-primary">
+                                            确定
+                                        </button>
+                                    </div>
+                                </form>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
                 </div>
                 <section class="panel panel-default">
                     <section class="panel panel-default">
                         <header class="panel-heading bg-light">
                             <ul class="nav nav-tabs nav-justified">
-                                <li class="active"><a href="#home" data-toggle="tab">用户</a></li>
-                                <li><a href="#profile" data-toggle="tab">音乐</a></li>
+                                <li id="controller1" class="active"><a href="#home" data-toggle="tab">用户</a></li>
+                                <li id="controller2"><a href="#profile" data-toggle="tab">音乐</a></li>
                             </ul>
                         </header>
                         <div class="panel-body">
@@ -108,94 +406,126 @@
                                 <div class="tab-pane active" id="home">
                                     <div class="table-responsive">
                                         <table class="table table-striped m-b-none" data-ride="datatables">
-                                            <thead>
-
-                                            <tr>
-                                                <th style="width:10%">用户ID</th>
-                                                <th style="width:15%">用户手机号</th>
-                                                <th style="width:15%">用户邮箱</th>
-                                                <th style="width:15%">用户密码</th>
-                                                <th style="width:15%">用户昵称</th>
-                                                <th style="width:20%">用户介绍</th>
-                                                <th style="width:10%" class="text-center">操作</th>
-                                            </tr>
-                                            <th:block th:each="user,num:${session.ALLUSER}">
-                                                <tr role="row" class="odd"
-                                                    th:class="${num.count % 2 == 1}?'odd greencolor1':'odd'">
-                                                    <td class="sorting_1">[[${user.getUser_id()}]]</td>
-                                                    <td>[[${user.getUser_phone()}]]</td>
-                                                    <td>[[${user.getUser_email()}]]</td>
-                                                    <td>[[${user.getUser_pwd()}]]</td>
-                                                    <td>[[${user.getUser_name()}]]</td>
-                                                    <td>[[${user.getUser_introduced()}]]</td>
-                                                    <td class="text-center">
-                                                        <a data-toggle="modal" data-target="#myModal" class="no-border">
-                                                            <i class="icon-note no-border"
-                                                               th:value="${user.getUser_id()}"></i></a>
-                                                        <a class="no-border">
-                                                            <i class="icon-trash no-border m-l-lg" th:value="${user.getUser_id()}"></i>
-                                                        </a>
-                                                    </td>
-
+                                            <div class="Afind-ys">
+                                                <div class="Afind-left-ys">
+                                                    <input id="FINDUSER" class="color-rect-border" placeholder="请输入手机号"
+                                                           style="border-radius: 8px;margin-right: 5px">
+                                                    <a href="#" class="no-border">
+                                                        <i id="A-finduser" class="icon-magnifier"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="Afind-right-ys">
+                                                    <a data-toggle="modal" data-target="#myModa3">
+                                                        添&nbsp;&nbsp;加&nbsp;&nbsp;<i class="icon-plus "></i>
+                                                    </a>
+                                                </div>
+                                                <tr>
+                                                    <th style="width:10%">用户ID</th>
+                                                    <th style="width:15%">用户手机号</th>
+                                                    <th style="width:15%">用户邮箱</th>
+                                                    <th style="width:15%">用户密码</th>
+                                                    <th style="width:15%">用户昵称</th>
+                                                    <th style="width:20%">用户介绍</th>
+                                                    <th style="width:10%" class="text-center">操作</th>
                                                 </tr>
-                                            </th:block>
-
-                                            </thead>
+                                                <th:block th:each="user,num:${session.ALLUSER}">
+                                                    <tr role="row" class="odd"
+                                                        th:class="${num.count % 2 == 1}?'odd greencolor1':'odd'">
+                                                        <td class="sorting_1">[[${user.getUser_id()}]]</td>
+                                                        <td>[[${user.getUser_phone()}]]</td>
+                                                        <td>[[${user.getUser_email()}]]</td>
+                                                        <td>[[${user.getUser_pwd()}]]</td>
+                                                        <td>[[${user.getUser_name()}]]</td>
+                                                        <td>[[${user.getUser_introduced()}]]</td>
+                                                        <td class="text-center">
+                                                            <a data-toggle="modal" data-target="#myModal"
+                                                               class="no-border">
+                                                                <i class="icon-note no-border"
+                                                                   th:value="${user.getUser_id()}"></i></a>
+                                                            <a data-toggle="modal" data-target="#myModa2"
+                                                               class="no-border">
+                                                                <i class="icon-trash no-border m-l-lg"
+                                                                   th:value="${user.getUser_id()}"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </th:block>
+                                            </div>
                                         </table>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="profile">
                                     <div class="table-responsive">
                                         <table class="table table-striped m-b-none" data-ride="datatables">
-                                            <thead>
-                                            <tr>
-                                                <th style="width:10%">歌曲ID</th>
-                                                <th style="width:15%">歌曲名称</th>
-                                                <th style="width:15%">歌手</th>
-                                                <th style="width:25%">歌曲路径</th>
-                                                <th style="width:15%" class="text-center">歌曲图片</th>
-                                                <th style="width:20%" class="text-center">操作</th>
-                                            </tr>
-                                            <th:block th:each="music,num:${session.AMusicList}">
-                                                <tr role="row" class="odd"
-                                                    th:class="${num.count % 2 == 1}?'odd greencolor1':'odd'">
-                                                    <td class="sorting_1" style="padding-top: 20px">
-                                                        [[${music.getMusic_id()}]]
-                                                    </td>
-                                                    <td style="padding-top: 20px">[[${music.getMusic_name()}]]</td>
-                                                    <td style="padding-top: 20px">[[${music.getMusic_singer()}]]</td>
-                                                    <td style="padding-top: 20px">[[${music.getMusic_storagepath()}]]
-                                                    </td>
-                                                    <td class="text-center"><img class="img-circle imgsetwh"
-                                                                                 th:src="${music.getMusic_img()}"></td>
-                                                    <td class="text-center" style="padding-top: 20px">
-                                                        <a class="no-border"><i class="icon-note no-border"></i></a>
-                                                        <a class="no-border"><i class="icon-trash no-border m-l-lg"></i></a>
-                                                    </td>
+                                            <div class="Afind-ys">
+                                                <div class="Afind-left-ys">
+                                                    <input id="FINDMUSIC" class="color-rect-border" placeholder="请输入歌名"
+                                                           style="border-radius: 8px;margin-right: 5px">
+                                                    <a href="#" class="no-border">
+                                                        <i id="A-findmusic" class="icon-magnifier A-findmusic"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="Afind-right-ys">
+                                                    <a data-toggle="modal" data-target="#myModa6">
+                                                        上&nbsp;&nbsp;传&nbsp;&nbsp;<i
+                                                            class="icon-cloud-upload  A-insertmusic"></i>
+                                                    </a>
+                                                </div>
+                                                <tr>
+                                                    <th style="width:10%">歌曲ID</th>
+                                                    <th style="width:15%">歌曲名称</th>
+                                                    <th style="width:15%">歌手</th>
+                                                    <th style="width:25%">歌曲路径</th>
+                                                    <th style="width:15%" class="text-center">歌曲图片</th>
+                                                    <th style="width:20%" class="text-center">操作</th>
                                                 </tr>
-                                            </th:block>
-
-                                            </thead>
+                                                <th:block th:each="music,num:${session.AMusicList}">
+                                                    <tr role="row" class="odd"
+                                                        th:class="${num.count % 2 == 1}?'odd greencolor1':'odd'">
+                                                        <td class="sorting_1" style="padding-top: 20px">
+                                                            [[${music.getMusic_id()}]]
+                                                        </td>
+                                                        <td style="padding-top: 20px">[[${music.getMusic_name()}]]</td>
+                                                        <td style="padding-top: 20px">[[${music.getMusic_singer()}]]
+                                                        </td>
+                                                        <td style="padding-top: 20px">
+                                                            [[${music.getMusic_storagepath()}]]
+                                                        </td>
+                                                        <td class="text-center"><img class="img-circle imgsetwh"
+                                                                                     th:src="${music.getMusic_img()}">
+                                                        </td>
+                                                        <td class="text-center" style="padding-top: 20px">
+                                                            <a class="no-border" data-toggle="modal"
+                                                               data-target="#myModa4">
+                                                                <i th:value="${music.getMusic_id()}"
+                                                                   class="icon-note A-updatemusic no-border"></i>
+                                                            </a>
+                                                            <a class="no-border" data-toggle="modal"
+                                                               data-target="#myModa5">
+                                                                <i th:value="${music.getMusic_id()}"
+                                                                   class="icon-trash A-deletemusic no-border m-l-lg"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </th:block>
+                                            </div>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
-
                 </section>
             </section>
         </section>
-        <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open"
-           data-target="#nav,html"></a>
     </section>
 </section>
 <footer th:replace="public :: public_footer_footer"></footer>
 <script th:inline="javascript">
     $(document).ready(function () {
+        //USER
         $(".icon-note").click(function () {
             var user = $(this);
-
             $("#newsubmit").click(function () {
                 var userphone = $("#userphone").val();
                 var useremail = $("#useremail").val();
@@ -226,6 +556,172 @@
                         alert("ERROR");
                     }
                 });
+            });
+        });
+        $(".icon-trash").click(function () {
+            var user = $(this);
+            $("#newsubmit2").click(function () {
+                $.ajax({
+                    url: "admin/deleteuser",
+                    type: "post",
+                    dataType: 'json',
+                    data: {
+                        "userid": user.attr("value"),
+                    },
+                    success: function (result) {
+                        if (result.stat == 0) {
+                            alert("删除失败");
+                        } else if (result.stat == 1) {
+                            window.location.reload();
+                        }
+                    },
+                    error: function () {
+                        alert("ERROR");
+                    }
+                });
+            });
+        });
+        $("#A-finduser").click(function () {
+            var userphone = $("#FINDUSER").val();
+            $.ajax({
+                url: "admin/finduser",
+                type: "post",
+                dataType: 'json',
+                data: {
+                    "userphone": userphone,
+                },
+                success: function (result) {
+                    if (result.stat == 0) {
+                        alert("没有该用户");
+                        window.location.reload();
+                    } else if (result.stat == 1) {
+                        window.location.reload();
+                    }
+                },
+                error: function () {
+                    alert("ERROR")
+                }
+            });
+        });
+        $(".icon-plus").click(function () {
+            $("#newsubmit3").click(function () {
+                var sss;
+                //alert($("input[name = ha]:checked").attr("value"));
+                var userAdministrator = $("input[name = ha]:checked").attr("value");
+                if(userAdministrator == 1){
+                    sss = true
+                } else if(userAdministrator == 2){
+                    sss = false
+                }
+                //alert(sss)
+                $.ajax({
+                    url: "admin/insertuser",
+                    type: "post",
+                    dataType: 'json',
+                    data: {
+                        "username": $("#insertusername").val(),
+                        "userphone": $("#insertuserphone").val(),
+                        "useremail": $("#insertuseremail").val(),
+                        "userpwd": $("#insertuserpwd").val(),
+                        "user_Administrator":sss
+                    },
+                    success: function (result) {
+                        if (result.stat == 1) {
+                            window.location.reload();
+                        } else if (result.stat == 0) {
+                            alert("添加失败");
+                        }
+                    },
+                    error: function () {
+                        alert("ERROR");
+                    }
+                });
+            });
+        });
+
+        //MUSIC
+        $(".A-updatemusic").click(function () {
+            var music = $(this);
+            $("#MusicID").attr("value", music.attr("value"));
+            $("#newsubmit4").click(function () {
+                if ($('#newMusicName').val() === '') {
+                    alert("请填入歌名");
+                    return false;
+                } else if ($("#newMusicSinger").val() === '') {
+                    alert("请填入歌手名");
+                    return false;
+                } else if ($("#newMusicUrl").val() === '') {
+                    alert("请选择歌曲文件");
+                    return false;
+                } else if ($("#newMusicImgUrl").val() === '') {
+                    alert("请选择歌曲图片文件");
+                    return false;
+                } else $('#uploadForm').submit();
+            });
+        });
+        $(".A-deletemusic").click(function () {
+            var music = $(this)
+            $("#newsubmit5").click(function () {
+                $.ajax({
+                    url: "admin/deletemusic",
+                    type: "post",
+                    dataType: 'json',
+                    data: {
+                        "musicid": music.attr("value")
+                    },
+                    success: function (result) {
+                        if (result.stat == 1) {
+                            window.location.reload();
+                        } else if (result.stat == 0) {
+                            alert("删除失败")
+                        }
+                    },
+                    error: function () {
+                        alert("ERROR");
+                    }
+                });
+            });
+        });
+        $("#A-findmusic").click(function () {
+            var music = $("#FINDMUSIC").val();
+            if (music == null) {
+                music = ""
+            }
+            $.ajax({
+                url: "admin/findmusic",
+                type: "post",
+                dataType: 'json',
+                data: {
+                    "music": music,
+                },
+                success: function (result) {
+                    if (result.stat == 1) {
+                        $("#profile").load(location.href + " #profile");
+                        window.location.reload();
+                    } else if (result.stat == 0) {
+                        alert("未查询到这首歌曲");
+                    }
+                },
+                error: function () {
+                    alert("ERROR");
+                }
+            });
+        });
+        $(".icon-cloud-upload").click(function () {
+            $("#newsubmit6").click(function () {
+                if ($('#newMusicName1').val() === '') {
+                    alert("请填入歌名");
+                    return false;
+                } else if ($("#newMusicSinger1").val() === '') {
+                    alert("请填入歌手名");
+                    return false;
+                } else if ($("#newMusicUrl1").val() === '') {
+                    alert("请选择歌曲文件");
+                    return false;
+                } else if ($("#newMusicImgUrl1").val() === '') {
+                    alert("请选择歌曲图片文件");
+                    return false;
+                } else $('#uploadForm1').submit();
             });
         });
     });

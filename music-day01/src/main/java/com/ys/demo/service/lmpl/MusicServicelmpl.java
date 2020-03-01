@@ -96,7 +96,7 @@ public class MusicServicelmpl implements MusicService {
         JSONArray jsonArray = new JSONArray();
         HashMap<String, String> map = new HashMap<>();
         ArrayList<MusicBean> musicByUserPhoneOfFavorite = musicMapper.findMusicByUserPhoneOfFavorite(userphone);
-        for (MusicBean musicBean:musicByUserPhoneOfFavorite) {
+        for (MusicBean musicBean : musicByUserPhoneOfFavorite) {
             map.put("title", musicBean.getMusic_name());
             map.put("artist", musicBean.getMusic_singer());
             map.put("m4a", musicBean.getMusic_storagepath());
@@ -126,7 +126,7 @@ public class MusicServicelmpl implements MusicService {
     @Override
     public boolean delFavoritesong(String userPhone, String musicName) {
         boolean result = musicMapper.delfavoritesong(userPhone, musicName);
-        if(result){
+        if (result) {
             return true;
         } else {
             return false;
@@ -137,6 +137,42 @@ public class MusicServicelmpl implements MusicService {
     public boolean uploadFavoritesong(FavoriteSongs songs) {
         boolean b = musicMapper.uploadMusicFavorite(songs);
         return b;
+    }
+
+    @Override
+    public boolean UPDATEMUSIC(String newMusicName, String newMusicSinger, Integer musicID) {
+        String newSongUrl = "http://localhost:8080/media/" + newMusicName + ".m4a";
+        String newSongImgUrl = "http://localhost:8080/media/img/" + newMusicName + "-" + newMusicSinger + ".jpg";
+        MusicBean musicBean = new MusicBean(musicID, newMusicName, newMusicSinger, newSongUrl, newSongImgUrl);
+        int i = musicMapper.UPDATEMUSIC(musicBean);
+        if (i != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean DELETEMUSIC(Integer music_id) {
+        boolean b = musicMapper.DELETEMUSIC(music_id);
+        if (b) {
+            boolean b1 = musicMapper.DELETEMUSICOFUSERF(music_id);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public ArrayList<MusicBean> FINDMUSIC(String music_name) {
+        ArrayList<MusicBean> arrayList = musicMapper.FINDMUSICBYNAME(music_name);
+        return arrayList;
+    }
+
+    @Override
+    public MusicBean FINDMUSICOFID(Integer music_id) {
+        MusicBean musicBean = musicMapper.FINDMUSICBYID(music_id);
+        return musicBean;
     }
 
 

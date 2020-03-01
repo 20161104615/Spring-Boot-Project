@@ -162,4 +162,5 @@ public class UserBean {
         this.user_email = user_email;
         this.user_introduced = user_introduced;
     }
+    
 }

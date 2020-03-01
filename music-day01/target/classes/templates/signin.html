@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" onclick="checkInput()"
+            <button type="submit" onclick="checkInputs()"
                     class="btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded">
                 <i class=" icon-login pull-right"></i>
                 <span class="m-r-n-lg" th:text="#{signin.signin}"></span>
@@ -67,7 +67,7 @@
 <footer th:replace="public :: public_footer_footer"></footer>
 </body>
 <script th:inline="javascript">
-    function checkInput() {
+    function checkInputs() {
         var userphoneoremail = document.getElementById("userphoneoremail").value;
         var user_password = document.getElementById("user_password").value;
         if(userphoneoremail == "" || user_password == ""){

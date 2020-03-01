@@ -116,7 +116,7 @@ public class UserController {
         response.setContentType("text/html;charset=utf-8");
         JSONObject jsonObject;
         if (!StringUtils.isEmpty(user_name) && !StringUtils.isEmpty(user_phone) && !StringUtils.isEmpty(user_email) && !StringUtils.isEmpty(user_pwd)) {
-            UserBean userBean = new UserBean(user_name, user_phone, user_email, user_pwd,false);
+            UserBean userBean = new UserBean(user_name, user_phone, user_email, user_pwd, false);
             boolean register = userService.userRegister(userBean);
             if (register) {
                 request.getSession().setAttribute("LoginUser", userBean);
@@ -191,9 +191,9 @@ public class UserController {
         JSONObject jsonObject;
         MusicBean musicBean = musicService.findONEMusic(songname);
         UserBean userBean = userService.userfindstring(userphone);
-        FavoriteSongs favoriteSongs = new FavoriteSongs(userBean.getUser_phone(),musicBean.getMusic_id(),musicBean.getMusic_name());
+        FavoriteSongs favoriteSongs = new FavoriteSongs(userBean.getUser_phone(), musicBean.getMusic_id(), musicBean.getMusic_name());
         boolean b = musicService.uploadFavoritesong(favoriteSongs);
-        if(b){
+        if (b) {
             map.put("statt", "1");
             map.put("songname", songname);
             jsonObject = JSONObject.fromObject(map);
@@ -251,9 +251,15 @@ public class UserController {
         response.setContentType("text/html;charset=utf-8");
         JSONObject jsonObject;
         ArrayList<MusicBean> musicOfPlayListinformation = musicService.findMusicOfPlayListinformation(userphone);
-        request.getSession().setAttribute("playMusiconeinformation", musicOfPlayListinformation);
-        map.put("statt", "1");
-        jsonObject = JSONObject.fromObject(map);
-        response.getWriter().print(jsonObject);
+        if (musicOfPlayListinformation.isEmpty()) {
+            map.put("statt", "0");
+            jsonObject = JSONObject.fromObject(map);
+            response.getWriter().print(jsonObject);
+        } else {
+            request.getSession().setAttribute("playMusiconeinformation", musicOfPlayListinformation);
+            map.put("statt", "1");
+            jsonObject = JSONObject.fromObject(map);
+            response.getWriter().print(jsonObject);
+        }
     }
 }

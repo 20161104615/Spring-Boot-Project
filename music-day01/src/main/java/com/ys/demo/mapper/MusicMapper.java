@@ -2,10 +2,7 @@ package com.ys.demo.mapper;
 
 import com.ys.demo.bean.FavoriteSongs;
 import com.ys.demo.bean.MusicBean;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.ArrayList;
 
@@ -35,6 +32,12 @@ public interface MusicMapper {
     @Select("select * from music where music_id in (select music_id from favoritesongs where user_phone = #{userphone})")
     public ArrayList<MusicBean> findMusicByUserPhoneOfFavorite(String userphone);
 
+    @Select("select * from music where music_name like concat('%',#{music_name},'%')")
+    public ArrayList<MusicBean> FINDMUSICBYNAME(String music_name);
+
+    @Select("SELECT * FROM music WHERE music_id = #{music_id}")
+    public MusicBean FINDMUSICBYID(Integer music_id);
+
     /**
      * 添加歌曲
      * 1、添加歌曲名、歌手、歌曲路径、歌曲图片路径
@@ -50,11 +53,26 @@ public interface MusicMapper {
             "(#{music_id},#{music_name},#{user_phone})")
     public boolean uploadMusicFavorite(FavoriteSongs songs);
 
+
+    /**
+     * 更新歌曲
+     */
+    @Update("update music set music_name=#{music_name},music_singer=#{music_singer}," +
+            "music_storagepath=#{music_storagepath},music_img=#{music_img} " +
+            "where music_id=#{music_id} ")
+    public int UPDATEMUSIC(MusicBean musicBean);
+
     /**
      * 删除歌曲
      * 1、删除用户收藏的歌曲
+     * 2、删除歌曲
      */
     @Delete("DELETE FROM favoritesongs WHERE music_name = #{musicName} AND user_phone = #{userPhone}")
     public boolean delfavoritesong(String userPhone, String musicName);
+
+    @Delete("DELETE FROM music WHERE music_id=#{music_id}")
+    public boolean DELETEMUSIC(Integer music_id);
+    @Delete("DELETE FROM favoritesongs WHERE music_id = #{music_id}")
+    public boolean DELETEMUSICOFUSERF(Integer music_id);
 
 }

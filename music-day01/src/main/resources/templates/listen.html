@@ -33,7 +33,7 @@
                                             <div class="bottom gd bg-info wrapper-lg">
                                                 <span class="h2 font-thin">[[${song.getMusic_singer()}]]</span>
                                             </div>
-                                            <img class="col-sm-4 "
+                                            <img class="col-sm-4 img-circle"
                                                  th:src="${song.getMusic_img()}" alt="...">
                                         </th:block>
                                     </div>
@@ -50,11 +50,17 @@
                             <section class="vbox" style="background-color: rgba(22,255,44,0.05)">
                                 <section class="scrollable">
                                     <strong>收藏列表</strong>
+                                    <form id="uploadForm" method="post" th:action="@{files/downloadmusic}">
+                                        <input id="downloadmusicid" name="downloadmusicid" class="hide">
+                                    </form>
                                     <th:block th:each="song:${session.playMusiconeinformation}">
                                         <div class="alert alert-info">
                                             <!--<button type="button" class="close" data-dismiss="alert">&times;</button>-->
                                             <i class="fa fa-info-sign"></i>
-                                                [[${song.getMusic_name()}]]
+                                            [[${song.getMusic_name()}]]
+                                            <i class="icon-cloud-download" style="margin-left: 500px"
+                                               th:value="${song.getMusic_id()}">
+                                            <span>下载</span></i>
                                         </div>
                                     </th:block>
                                 </section>
@@ -216,6 +222,12 @@
                     }
                 }
             });
+        });
+
+        $(".icon-cloud-download").click(function () {
+            var song = $(this);
+            $("#downloadmusicid").attr("value", song.attr("value"));
+            $("#uploadForm").submit();
         });
 
     });

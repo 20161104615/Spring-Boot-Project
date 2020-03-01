@@ -16,7 +16,7 @@
             </header>
             <div class="panel-body">
                 <div class="form-horizontal m-l-xl">
-                    <form id="uploadForm" onsubmit="return checkInput()" enctype="multipart/form-data" method="post"
+                    <form id="uploadForm" enctype="multipart/form-data" method="post"
                           th:action="@{files/fileUpload}">
                         <div class="line line-dashed b-b line-lg pull-in"></div>
                         <div class="form-group has-success">
@@ -54,7 +54,6 @@
                         </div>
                         <input id="newmusicsubmit" type="submit" class="btn btn-default btn-lg"
                                style="width: 400px;margin-left: 500px;margin-top: 30px">
-                        </input>
                     </form>
                 </div>
             </div>

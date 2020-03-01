@@ -20,4 +20,8 @@ public interface MusicService {
     public MusicBean findONEMusic(String musicName);
     public boolean delFavoritesong(String userPhone,String musicName);
     public boolean uploadFavoritesong(FavoriteSongs songs);
+    public boolean UPDATEMUSIC(String newMusicName,String newMusicSinger,Integer musicID);
+    public boolean DELETEMUSIC(Integer music_id);
+    public ArrayList<MusicBean> FINDMUSIC(String music_name);
+    public MusicBean FINDMUSICOFID(Integer music_id);
 }
